@@ -28,11 +28,11 @@ public class DatabaseUtil implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception
     {
-        UserRole u = new UserRole("Gaurav Sharma","test@gmail.com", 1234567890L,"test234",new Date());
-        userRepository.save(u);
-        Employee e = new Employee("Alan Nolan"," Toronto, Ontario",1234567890L,"Developer",500,new Date(),null,new Date());
-        employeeRepository.save(e);
-        payrollRepository.save(new Payroll(2,28,500,14000,1000,13000,"NEFT",new Date(),e));
-        payrollRepository.save(new Payroll(3,28,500,14000,500,13500,"NEFT",new Date(),e));
+//        UserRole u = new UserRole("Gaurav Sharma","test@gmail.com", 1234567890L,"test234",new Date());
+//        userRepository.save(u);
+//        Employee e = new Employee("Alan Nolan"," Toronto, Ontario",1234567890L,"Developer",500,new Date(),null,new Date());
+//        employeeRepository.save(e);
+//        payrollRepository.save(new Payroll(2,28,500,14000,1000,13000,"NEFT",new Date(),e));
+//        payrollRepository.save(new Payroll(3,28,500,14000,500,13500,"NEFT",new Date(),e));
     }
 }
