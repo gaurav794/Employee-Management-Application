@@ -14,11 +14,11 @@ public class UserRole
     private Long user_id;
     @Column(length = 20)
     private String user_name;
-    @Column(length = 30)
+    @Column(length = 30, unique = true, nullable = false)
     private String email_id;
     @Column(length = 10)
     private Long phone_number;
-    @Column(length = 15)
+    @Column(length = 15,nullable = false)
     private String password;
     private Date date_added;
 

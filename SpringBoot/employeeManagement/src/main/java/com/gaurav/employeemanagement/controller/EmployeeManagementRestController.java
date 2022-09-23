@@ -2,11 +2,9 @@ package com.gaurav.employeemanagement.controller;
 
 import com.gaurav.employeemanagement.model.UserRole;
 import com.gaurav.employeemanagement.service.EmployeeManagementService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -20,10 +18,32 @@ public class EmployeeManagementRestController
     }
     //TODO: Develop endpoints to retrieve data from the database
     //TODO: Develop Model for LoginForm
-    @GetMapping("/userRole")
-    public ResponseEntity<UserRole> getUserRole(@RequestBody UserRole userRole)
+    @GetMapping("/login")
+    @ResponseBody
+    public ResponseEntity getUserRole(@RequestBody UserRole details)
     {
-        boolean result = employeeManagementService.isUserRolePresent(userRole);
-        return ResponseEntity.ok(userRole);
+        UserRole result = employeeManagementService.findUserRole(details);
+        //user not found
+        if(result == null)
+            return new ResponseEntity(null,HttpStatus.OK);
+        //success: true
+        return new ResponseEntity(true,HttpStatus.OK);
+    }
+    //TODO: Check User if it already exists, get information about
+    // @Column(unique) constraint
+    @PostMapping("/signup")
+    @ResponseBody
+    public ResponseEntity addUserRole(@RequestBody UserRole details)
+    {
+        ResponseEntity flag = null;
+        try
+        {
+            flag = employeeManagementService.saveUserRole(details);
+        }
+        catch(Exception e)
+        {
+            return new ResponseEntity(e,HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity(flag.getBody(),flag.getStatusCode());
     }
 }
