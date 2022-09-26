@@ -51,19 +51,18 @@ public class EmployeeManagementRestController
     }
     //get list of employees from the database
     @GetMapping("/employees")
-    public List<Employee> getEmployeeList()
+    public ResponseEntity getEmployeeList()
     {
-//        ResponseEntity flag = null;
-//        try
-//        {
-//            flag = employeeManagementService.getEmployees();
-//        }
-//        catch(Exception e)
-//        {
-//            return new ResponseEntity(e,HttpStatus.INTERNAL_SERVER_ERROR);
-//        }
-//        return new ResponseEntity(flag.getBody(),flag.getStatusCode());
-        return employeeManagementService.getEmployees();
+        ResponseEntity flag = null;
+        try
+        {
+            flag = employeeManagementService.getEmployees();
+        }
+        catch(Exception e)
+        {
+            return new ResponseEntity(e,HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity(flag.getBody(),flag.getStatusCode());
     }
     //add employee to the database
     @PostMapping("/add_employee")
@@ -82,36 +81,36 @@ public class EmployeeManagementRestController
         return new ResponseEntity(flag.getBody(),flag.getStatusCode());
     }
 
-//    @GetMapping("/payrolls")
-//    @ResponseBody
-//    public ResponseEntity getEmployeePayrolls(@RequestBody Employee employee)
-//    {
-//        ResponseEntity flag = null;
-//        try
-//        {
-//            flag = employeeManagementService.getPayrolls(employee);
-//        }
-//        catch(Exception e)
-//        {
-//            return new ResponseEntity(e,HttpStatus.INTERNAL_SERVER_ERROR);
-//        }
-//        return new ResponseEntity(flag.getBody(),flag.getStatusCode());
-//    }
-//
-//    @PostMapping("/add_payroll")
-//    @ResponseBody
-//    public ResponseEntity addEmployeePayroll(@RequestBody Payroll payroll)
-//    {
-//        ResponseEntity flag = null;
-//        try
-//        {
-//            flag = employeeManagementService.addPayroll(payroll);
-//        }
-//        catch(Exception e)
-//        {
-//            return new ResponseEntity(e,HttpStatus.INTERNAL_SERVER_ERROR);
-//        }
-//        return new ResponseEntity(flag.getBody(),flag.getStatusCode());
-//    }
+    @GetMapping("/payrolls")
+    @ResponseBody
+    public ResponseEntity getEmployeePayrolls(@RequestBody Employee employee)
+    {
+        ResponseEntity flag = null;
+        try
+        {
+            flag = employeeManagementService.getPayrolls(employee);
+        }
+        catch(Exception e)
+        {
+            return new ResponseEntity(e,HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity(flag.getBody(),flag.getStatusCode());
+    }
+
+    @PostMapping("/add_payroll")
+    @ResponseBody
+    public ResponseEntity addEmployeePayroll(@RequestBody Payroll payroll)
+    {
+        ResponseEntity flag = null;
+        try
+        {
+            flag = employeeManagementService.addPayroll(payroll);
+        }
+        catch(Exception e)
+        {
+            return new ResponseEntity(e,HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity(flag.getBody(),flag.getStatusCode());
+    }
 
 }

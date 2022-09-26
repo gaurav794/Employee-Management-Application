@@ -15,7 +15,10 @@ public class Employee
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "employee_id", nullable = false,length =3)
     private Long employee_id;
-    @Column(length = 20)
+    @Column(length = 6,unique = true,nullable = false)
+    //personal identification id
+    private String pid;
+    @Column(length = 20,nullable = false)
     private String name;
     @Column(length = 50,nullable = false)
     private String address;
@@ -36,7 +39,8 @@ public class Employee
     public Employee() {
     }
 
-    public Employee(String name, String address, Long phone_number, String designation, int daily_wage, Date doj, Date last_day, Date date_added) {
+    public Employee(String pid, String name, String address, Long phone_number, String designation, int daily_wage, Date doj, Date last_day, Date date_added) {
+        this.pid = pid;
         this.name = name;
         this.address = address;
         this.phone_number = phone_number;
@@ -53,6 +57,14 @@ public class Employee
 
     public void setEmployee_id(Long employee_id) {
         this.employee_id = employee_id;
+    }
+
+    public String getPid() {
+        return pid;
+    }
+
+    public void setPid(String pid) {
+        this.pid = pid;
     }
 
     public String getName() {
@@ -119,32 +131,24 @@ public class Employee
         this.date_added = date_added;
     }
 
-    @JsonManagedReference
-    public Set<Payroll> getPayrolls() {
-        return payrolls;
-    }
-
-    public void setPayrolls(Set<Payroll> payrolls) {
-        this.payrolls = payrolls;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return daily_wage == employee.daily_wage && Objects.equals(employee_id, employee.employee_id) && Objects.equals(name, employee.name) && Objects.equals(address, employee.address) && Objects.equals(phone_number, employee.phone_number) && Objects.equals(designation, employee.designation) && Objects.equals(doj, employee.doj) && Objects.equals(last_day, employee.last_day) && Objects.equals(date_added, employee.date_added);
+        return daily_wage == employee.daily_wage && Objects.equals(employee_id, employee.employee_id) && Objects.equals(pid, employee.pid) && Objects.equals(name, employee.name) && Objects.equals(address, employee.address) && Objects.equals(phone_number, employee.phone_number) && Objects.equals(designation, employee.designation) && Objects.equals(doj, employee.doj) && Objects.equals(last_day, employee.last_day) && Objects.equals(date_added, employee.date_added) && Objects.equals(payrolls, employee.payrolls);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(employee_id, name, address, phone_number, designation, daily_wage, doj, last_day, date_added);
+        return Objects.hash(employee_id, pid, name, address, phone_number, designation, daily_wage, doj, last_day, date_added, payrolls);
     }
 
     @Override
     public String toString() {
         return "Employee{" +
                 "employee_id=" + employee_id +
+                ", pid='" + pid + '\'' +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", phone_number=" + phone_number +
@@ -153,6 +157,7 @@ public class Employee
                 ", doj=" + doj +
                 ", last_day=" + last_day +
                 ", date_added=" + date_added +
+                ", payrolls=" + payrolls +
                 '}';
     }
 }

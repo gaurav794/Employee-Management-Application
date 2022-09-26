@@ -59,25 +59,24 @@ public class EmployeeManagementService
     }
 
     //get employees from Employee table
-    public List<Employee> getEmployees()
+    public ResponseEntity getEmployees()
     {
-        List<Employee> listOfEmployee = employeeRepository.findAll();
-//        try
-//        {
-//            listOfEmployee = employeeRepository.findAll();
-//        }
-//        catch(Exception e)
-//        {
-//            return new ResponseEntity(e, HttpStatus.INTERNAL_SERVER_ERROR);
-//        }
-//        return new ResponseEntity(listOfEmployee, HttpStatus.OK);
-        return listOfEmployee;
+        List<Employee> listOfEmployee = null;
+        try
+        {
+            listOfEmployee = employeeRepository.findAll();
+        }
+        catch(Exception e)
+        {
+            return new ResponseEntity(e, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity(listOfEmployee, HttpStatus.OK);
     }
 
     //Add new employee to the Employee table
     public ResponseEntity addEmployee(Employee employee)
     {
-        Employee newEmployee = new Employee(employee.getName(),employee.getAddress(),employee.getPhone_number(),employee.getDesignation(),employee.getDaily_wage(),employee.getDoj(),employee.getLast_day(),employee.getDate_added());
+        Employee newEmployee = new Employee(employee.getPid(), employee.getName(),employee.getAddress(),employee.getPhone_number(),employee.getDesignation(),employee.getDaily_wage(),new Date(),null,new Date());
         try
         {
             employeeRepository.save(newEmployee);
@@ -89,33 +88,33 @@ public class EmployeeManagementService
         return new ResponseEntity("Employee " + newEmployee.getName() + " successfully added.", HttpStatus.OK);
     }
 
-//    //get payrolls from Payroll table
-//    public ResponseEntity getPayrolls(Employee employee)
-//    {
-//        Iterable<Payroll> listOfPayroll = null;
-//        try
-//        {
-//            listOfPayroll = payrollRepository.findByEmployee_id(employee.getEmployee_id());
-//        }
-//        catch(Exception e)
-//        {
-//            return new ResponseEntity(e, HttpStatus.INTERNAL_SERVER_ERROR);
-//        }
-//        return new ResponseEntity(listOfPayroll, HttpStatus.OK);
-//    }
-//
-//    //Add new employee's payroll to the Payroll table
-//    public ResponseEntity addPayroll(Payroll p)
-//    {
-//        Payroll newPayroll = new Payroll(p.getPayroll_month(),p.getAttendance(),p.getDaily_wage(),p.getGenerated_salary(),p.getDeductions(),p.getNet_pay(),p.getPayment_mode(),p.getDate_added(),p.getEmployee());
-//        try
-//        {
-//            payrollRepository.save(newPayroll);
-//        }
-//        catch(Exception e)
-//        {
-//            return new ResponseEntity(e, HttpStatus.INTERNAL_SERVER_ERROR);
-//        }
-//        return new ResponseEntity("Payroll of " + newPayroll.getEmployee().getName() + " successfully generated.", HttpStatus.OK);
-//    }
+    //get payrolls from Payroll table
+    public ResponseEntity getPayrolls(Employee employee)
+    {
+        List<Payroll> listOfPayroll = null;
+        try
+        {
+            listOfPayroll = payrollRepository.findByEmployee_id(employee.getEmployee_id());
+        }
+        catch(Exception e)
+        {
+            return new ResponseEntity(e, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity(listOfPayroll, HttpStatus.OK);
+    }
+
+    //Add new employee's payroll to the Payroll table
+    public ResponseEntity addPayroll(Payroll p)
+    {
+        Payroll newPayroll = new Payroll(p.getPayroll_month(),p.getAttendance(),p.getDaily_wage(),p.getGenerated_salary(),p.getDeductions(),p.getNet_pay(),p.getPayment_mode(),new Date(),p.getEmployee());
+        try
+        {
+            payrollRepository.save(newPayroll);
+        }
+        catch(Exception e)
+        {
+            return new ResponseEntity(e, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity("Payroll of " + newPayroll.getEmployee().getName() + " successfully generated.", HttpStatus.OK);
+    }
 }

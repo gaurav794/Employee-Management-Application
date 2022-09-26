@@ -6,9 +6,13 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface PayrollRepository extends CrudRepository<Payroll, Long>
 {
-    @Query("SELECT payroll from Payroll payroll where payroll.employee.employee_id = ?1")
-    Iterable<Payroll> findByEmployee_id(Long id);
+    @Override
+    List<Payroll> findAll();
+    @Query("SELECT payroll FROM Payroll payroll WHERE payroll.employee.employee_id = ?1")
+    List<Payroll> findByEmployee_id(Long id);
 }
