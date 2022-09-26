@@ -1,5 +1,7 @@
 package com.gaurav.employeemanagement.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
@@ -12,19 +14,19 @@ public class Payroll
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "payroll_id", nullable = false,length = 3)
     private Long payroll_id;
-    @Column(length = 2)
+    @Column(length = 2,nullable = false)
     private int payroll_month;
-    @Column(length = 2)
+    @Column(length = 2,nullable = false)
     private int attendance;
-    @Column(length = 3)
+    @Column(length = 3,nullable = false)
     private int daily_wage;
-    @Column(length = 5)
+    @Column(length = 5,nullable = false)
     private int generated_salary;
     @Column(length = 5)
     private int deductions;
-    @Column(length = 5)
+    @Column(length = 5,nullable = false)
     private int net_pay;
-    @Column(length = 6)
+    @Column(length = 6,nullable = false)
     private String payment_mode;
     private Date date_added;
     //Foreign key from Employee
@@ -119,6 +121,7 @@ public class Payroll
         this.date_added = date_added;
     }
 
+    @JsonBackReference
     public Employee getEmployee() {
         return employee;
     }

@@ -1,10 +1,14 @@
 package com.gaurav.employeemanagement.controller;
 
+import com.gaurav.employeemanagement.model.Employee;
+import com.gaurav.employeemanagement.model.Payroll;
 import com.gaurav.employeemanagement.model.UserRole;
 import com.gaurav.employeemanagement.service.EmployeeManagementService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -17,7 +21,7 @@ public class EmployeeManagementRestController
         this.employeeManagementService = employeeManagementService;
     }
     //TODO: Develop endpoints to retrieve data from the database
-    //TODO: Develop Model for LoginForm
+    //get user from the database
     @GetMapping("/login")
     @ResponseBody
     public ResponseEntity getUserRole(@RequestBody UserRole details)
@@ -29,8 +33,7 @@ public class EmployeeManagementRestController
         //success: true
         return new ResponseEntity(true,HttpStatus.OK);
     }
-    //TODO: Check User if it already exists, get information about
-    // @Column(unique) constraint
+    //add user to the database
     @PostMapping("/signup")
     @ResponseBody
     public ResponseEntity addUserRole(@RequestBody UserRole details)
@@ -46,4 +49,69 @@ public class EmployeeManagementRestController
         }
         return new ResponseEntity(flag.getBody(),flag.getStatusCode());
     }
+    //get list of employees from the database
+    @GetMapping("/employees")
+    public List<Employee> getEmployeeList()
+    {
+//        ResponseEntity flag = null;
+//        try
+//        {
+//            flag = employeeManagementService.getEmployees();
+//        }
+//        catch(Exception e)
+//        {
+//            return new ResponseEntity(e,HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//        return new ResponseEntity(flag.getBody(),flag.getStatusCode());
+        return employeeManagementService.getEmployees();
+    }
+    //add employee to the database
+    @PostMapping("/add_employee")
+    @ResponseBody
+    public ResponseEntity addEmployeeDetails(@RequestBody Employee employee)
+    {
+        ResponseEntity flag = null;
+        try
+        {
+            flag = employeeManagementService.addEmployee(employee);
+        }
+        catch(Exception e)
+        {
+            return new ResponseEntity(e,HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity(flag.getBody(),flag.getStatusCode());
+    }
+
+//    @GetMapping("/payrolls")
+//    @ResponseBody
+//    public ResponseEntity getEmployeePayrolls(@RequestBody Employee employee)
+//    {
+//        ResponseEntity flag = null;
+//        try
+//        {
+//            flag = employeeManagementService.getPayrolls(employee);
+//        }
+//        catch(Exception e)
+//        {
+//            return new ResponseEntity(e,HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//        return new ResponseEntity(flag.getBody(),flag.getStatusCode());
+//    }
+//
+//    @PostMapping("/add_payroll")
+//    @ResponseBody
+//    public ResponseEntity addEmployeePayroll(@RequestBody Payroll payroll)
+//    {
+//        ResponseEntity flag = null;
+//        try
+//        {
+//            flag = employeeManagementService.addPayroll(payroll);
+//        }
+//        catch(Exception e)
+//        {
+//            return new ResponseEntity(e,HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//        return new ResponseEntity(flag.getBody(),flag.getStatusCode());
+//    }
+
 }

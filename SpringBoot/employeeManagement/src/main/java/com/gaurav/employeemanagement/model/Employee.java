@@ -1,5 +1,7 @@
 package com.gaurav.employeemanagement.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
@@ -15,13 +17,13 @@ public class Employee
     private Long employee_id;
     @Column(length = 20)
     private String name;
-    @Column(length = 50)
+    @Column(length = 50,nullable = false)
     private String address;
-    @Column(length = 10)
+    @Column(length = 10,nullable = false)
     private Long phone_number;
-    @Column(length = 15)
+    @Column(length = 15,nullable = false)
     private String designation;
-    @Column(length = 3)
+    @Column(length = 3,nullable = false)
     private int daily_wage;
     //date of joining
     private Date doj;
@@ -117,6 +119,7 @@ public class Employee
         this.date_added = date_added;
     }
 
+    @JsonManagedReference
     public Set<Payroll> getPayrolls() {
         return payrolls;
     }

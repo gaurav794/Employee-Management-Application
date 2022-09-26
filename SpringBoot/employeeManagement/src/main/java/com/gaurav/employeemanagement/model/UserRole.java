@@ -16,7 +16,7 @@ public class UserRole
     private String user_name;
     @Column(length = 30, unique = true, nullable = false)
     private String email_id;
-    @Column(length = 10)
+    @Column(length = 10,nullable = false)
     private Long phone_number;
     @Column(length = 15,nullable = false)
     private String password;
