@@ -26,6 +26,7 @@ public class EmployeeManagementRestController
     @ResponseBody
     public ResponseEntity getUserRole(@RequestBody UserRole details)
     {
+
         UserRole result = employeeManagementService.findUserRole(details);
         //user not found
         if(result == null)
@@ -50,7 +51,7 @@ public class EmployeeManagementRestController
         return new ResponseEntity(flag.getBody(),flag.getStatusCode());
     }
     //get list of employees from the database
-    @GetMapping("/employees")
+    @GetMapping("/getEmployees")
     public ResponseEntity getEmployeeList()
     {
         ResponseEntity flag = null;
@@ -65,7 +66,7 @@ public class EmployeeManagementRestController
         return new ResponseEntity(flag.getBody(),flag.getStatusCode());
     }
     //add employee to the database
-    @PostMapping("/add_employee")
+    @PostMapping("/addEmployee")
     @ResponseBody
     public ResponseEntity addEmployeeDetails(@RequestBody Employee employee)
     {
@@ -81,14 +82,14 @@ public class EmployeeManagementRestController
         return new ResponseEntity(flag.getBody(),flag.getStatusCode());
     }
 
-    @GetMapping("/payrolls")
+    @GetMapping("/getPayrolls")
     @ResponseBody
-    public ResponseEntity getEmployeePayrolls(@RequestBody Employee employee)
+    public ResponseEntity getEmployeePayrolls()
     {
         ResponseEntity flag = null;
         try
         {
-            flag = employeeManagementService.getPayrolls(employee);
+            flag = employeeManagementService.getPayrolls();
         }
         catch(Exception e)
         {
@@ -97,7 +98,7 @@ public class EmployeeManagementRestController
         return new ResponseEntity(flag.getBody(),flag.getStatusCode());
     }
 
-    @PostMapping("/add_payroll")
+    @PostMapping("/addPayroll")
     @ResponseBody
     public ResponseEntity addEmployeePayroll(@RequestBody Payroll payroll)
     {

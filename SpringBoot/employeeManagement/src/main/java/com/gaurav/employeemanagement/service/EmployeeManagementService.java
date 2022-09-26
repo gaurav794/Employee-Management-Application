@@ -89,12 +89,12 @@ public class EmployeeManagementService
     }
 
     //get payrolls from Payroll table
-    public ResponseEntity getPayrolls(Employee employee)
+    public ResponseEntity getPayrolls()
     {
         List<Payroll> listOfPayroll = null;
         try
         {
-            listOfPayroll = payrollRepository.findByEmployee_id(employee.getEmployee_id());
+            listOfPayroll = payrollRepository.findAll();
         }
         catch(Exception e)
         {

@@ -13,6 +13,4 @@ public interface PayrollRepository extends CrudRepository<Payroll, Long>
 {
     @Override
     List<Payroll> findAll();
-    @Query("SELECT payroll FROM Payroll payroll WHERE payroll.employee.employee_id = ?1")
-    List<Payroll> findByEmployee_id(Long id);
 }
