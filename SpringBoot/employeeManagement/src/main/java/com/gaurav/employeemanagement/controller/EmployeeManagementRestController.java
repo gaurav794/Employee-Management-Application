@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import javax.validation.Valid;
 
 
 @RestController
@@ -16,28 +16,33 @@ import java.util.List;
 public class EmployeeManagementRestController
 {
     private final EmployeeManagementService employeeManagementService;
-
-    public EmployeeManagementRestController(EmployeeManagementService employeeManagementService) {
+    private final Error error;
+    public EmployeeManagementRestController(EmployeeManagementService employeeManagementService, Error error) {
         this.employeeManagementService = employeeManagementService;
+        this.error = error;
     }
     //TODO: Develop endpoints to retrieve data from the database
     //get user from the database
     @GetMapping("/login")
     @ResponseBody
-    public ResponseEntity getUserRole(@RequestBody UserRole details)
+    public ResponseEntity getUserRole(@Valid @RequestBody UserRole details)
     {
-
-        UserRole result = employeeManagementService.findUserRole(details);
-        //user not found
-        if(result == null)
-            return new ResponseEntity(null,HttpStatus.OK);
+        UserRole result = null;
+        try
+        {
+            result = employeeManagementService.findUserRole(details);
+        }
+        catch(Exception e)
+        {
+            return new ResponseEntity(null,HttpStatus.INTERNAL_SERVER_ERROR);
+        }
         //success: true
-        return new ResponseEntity(true,HttpStatus.OK);
+        return new ResponseEntity(result,HttpStatus.OK);
     }
     //add user to the database
     @PostMapping("/signup")
     @ResponseBody
-    public ResponseEntity addUserRole(@RequestBody UserRole details)
+    public ResponseEntity addUserRole(@Valid @RequestBody UserRole details)
     {
         ResponseEntity flag = null;
         try
@@ -68,7 +73,7 @@ public class EmployeeManagementRestController
     //add employee to the database
     @PostMapping("/addEmployee")
     @ResponseBody
-    public ResponseEntity addEmployeeDetails(@RequestBody Employee employee)
+    public ResponseEntity addEmployeeDetails(@Valid @RequestBody Employee employee)
     {
         ResponseEntity flag = null;
         try
@@ -100,7 +105,7 @@ public class EmployeeManagementRestController
 
     @PostMapping("/addPayroll")
     @ResponseBody
-    public ResponseEntity addEmployeePayroll(@RequestBody Payroll payroll)
+    public ResponseEntity addEmployeePayroll(@Valid @RequestBody Payroll payroll)
     {
         ResponseEntity flag = null;
         try

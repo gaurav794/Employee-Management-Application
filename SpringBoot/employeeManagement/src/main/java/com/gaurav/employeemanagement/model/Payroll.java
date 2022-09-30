@@ -3,6 +3,7 @@ package com.gaurav.employeemanagement.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.Date;
 import java.util.Objects;
 
@@ -15,8 +16,10 @@ public class Payroll
     @Column(name = "payroll_id", nullable = false,length = 3)
     private Long payroll_id;
     @Column(length = 2,nullable = false)
+    @NotBlank
     private int payroll_month;
     @Column(length = 2,nullable = false)
+    @NotBlank
     private int attendance;
     @Column(length = 3,nullable = false)
     private int daily_wage;
@@ -25,8 +28,10 @@ public class Payroll
     @Column(length = 5)
     private int deductions;
     @Column(length = 5,nullable = false)
+    @NotBlank
     private int net_pay;
     @Column(length = 6,nullable = false)
+    @NotBlank
     private String payment_mode;
     private Date date_added;
     //Foreign key from Employee

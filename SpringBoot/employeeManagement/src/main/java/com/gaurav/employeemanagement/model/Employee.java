@@ -3,6 +3,7 @@ package com.gaurav.employeemanagement.model;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.Date;
 import java.util.Objects;
 import java.util.Set;
@@ -16,6 +17,7 @@ public class Employee
     @Column(name = "employee_id", nullable = false,length =3)
     private Long employee_id;
     @Column(length = 6,unique = true,nullable = false)
+    @NotBlank
     //personal identification id
     private String pid;
     @Column(length = 20,nullable = false)
@@ -23,6 +25,7 @@ public class Employee
     @Column(length = 50,nullable = false)
     private String address;
     @Column(length = 10,nullable = false)
+    @NotBlank
     private Long phone_number;
     @Column(length = 15,nullable = false)
     private String designation;

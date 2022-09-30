@@ -1,6 +1,7 @@
 package com.gaurav.employeemanagement.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.Date;
 import java.util.Objects;
 
@@ -15,10 +16,12 @@ public class UserRole
     @Column(length = 20)
     private String user_name;
     @Column(length = 30, unique = true, nullable = false)
+    @NotBlank
     private String email_id;
     @Column(length = 10,nullable = false)
     private Long phone_number;
     @Column(length = 15,nullable = false)
+    @NotBlank
     private String password;
     private Date date_added;
 
