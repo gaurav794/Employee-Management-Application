@@ -27,7 +27,7 @@ public class EmployeeManagementService
     }
 
     //find user from the UserRole table
-    public UserRole findUserRole(UserRole user)
+    public boolean findUserRole(UserRole user)
     {
         UserRole result = null;
         try
@@ -38,10 +38,11 @@ public class EmployeeManagementService
         {
             result = null;
         }
-        if(result == null)
-            return null;
 
-        return result;
+        if(result != null && user.getEmail_id().equals(result.getEmail_id()) && user.getPassword().equals(result.getPassword()))
+            return true;
+
+        return false;
     }
     //add user to UserRole table
     public ResponseEntity saveUserRole(UserRole user)
@@ -55,7 +56,7 @@ public class EmployeeManagementService
         {
            return new ResponseEntity(e, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return new ResponseEntity("Role " + newUser.getUser_name() + " successfully added.", HttpStatus.OK);
+        return new ResponseEntity(newUser, HttpStatus.OK);
     }
 
     //get employees from Employee table
@@ -85,7 +86,7 @@ public class EmployeeManagementService
         {
             return new ResponseEntity(e, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return new ResponseEntity("Employee " + newEmployee.getName() + " successfully added.", HttpStatus.OK);
+        return new ResponseEntity(newEmployee, HttpStatus.OK);
     }
 
     //get payrolls from Payroll table
@@ -115,6 +116,6 @@ public class EmployeeManagementService
         {
             return new ResponseEntity(e, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return new ResponseEntity("Payroll of " + newPayroll.getEmployee().getName() + " successfully generated.", HttpStatus.OK);
+        return new ResponseEntity(newPayroll, HttpStatus.OK);
     }
 }

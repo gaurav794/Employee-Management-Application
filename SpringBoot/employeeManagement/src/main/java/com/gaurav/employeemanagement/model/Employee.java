@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.Objects;
 import java.util.Set;
@@ -25,7 +26,7 @@ public class Employee
     @Column(length = 50,nullable = false)
     private String address;
     @Column(length = 10,nullable = false)
-    @NotBlank
+    @NotNull
     private Long phone_number;
     @Column(length = 15,nullable = false)
     private String designation;
