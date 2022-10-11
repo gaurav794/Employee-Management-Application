@@ -1,0 +1,39 @@
+.dash-main
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.dash-head
+{
+    width: 100%;
+    text-align: center;
+}
+
+
+.dash-title h1
+{
+    font-size: 3rem;
+    margin: 0;
+}
+
+.dash-items
+{
+   display: flex; 
+}
+.dash-item
+{
+    padding: 2rem;
+    margin: 3rem 1rem;
+    font-size: 20px;
+    background-color: rgb(174, 174, 174);
+    border-radius: 20px;
+    color: #000;
+    font-weight: bold;
+    width: 100px;
+    text-align: center;
+}
+

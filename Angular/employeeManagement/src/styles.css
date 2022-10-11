@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+body
+{
+    padding: 4rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container
+{
+    background: rgb(221, 221, 221);
+    min-height: 80vh;
+}
