@@ -1,11 +1,10 @@
-<div class="dash-main">
+<div class="dash-main main">
 
-<div class="dash-head">
+<div class="dash-head head">
     <!-- Logout Button -->
     <app-logout></app-logout>
-    <div class="dash-title page-title">
-        <h1 class="dash-title-heading">Dashboard</h1>
-    </div>
+    <!-- Page Heading  -->
+  <app-page-heading [heading]="page_heading"></app-page-heading>
 </div>
 
 <div class="dash-items">
@@ -14,6 +13,4 @@
     <div class="dash-item">Generate Payroll</div>
     <div class="dash-item">Payroll Summary</div>
 </div>
-
-
 </div>

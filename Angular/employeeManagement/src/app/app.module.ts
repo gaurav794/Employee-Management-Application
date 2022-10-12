@@ -5,18 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './component/login/login.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { LogoutComponent } from './component/logout/logout.component';
+import { PageHeadingComponent } from './component/page-heading/page-heading.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     DashboardComponent,
-    LogoutComponent
+    LogoutComponent,
+    PageHeadingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
   providers: [],
-  bootstrap: [DashboardComponent]
+  bootstrap: [LoginComponent]
 })
 export class AppModule { }

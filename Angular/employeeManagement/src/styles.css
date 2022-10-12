@@ -10,3 +10,18 @@ body
     background: rgb(221, 221, 221);
     min-height: 80vh;
 }
+
+.main
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.head
+{
+  width: 100%;
+  text-align: center;
+}
