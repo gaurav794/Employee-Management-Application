@@ -6,4 +6,24 @@
     <!-- Page Heading  -->
     <app-page-heading [heading]="page_heading"></app-page-heading>
   </div>
+
+  <div class="login-section">
+    <form class="login-form" (ngSubmit)="onSubmit()"  [formGroup]="login_form">
+      <input id="email" type="text" placeholder="Email" formControlName="email_id" required>
+      <div class="validation" *ngIf="email_id?.invalid && email_id?.touched">
+        <div *ngIf="email_id?.errors?.['required']">Email ID is required</div>
+      </div>
+      <input id="pass" type="password" placeholder="Password" formControlName="password">
+      <div class="validation" *ngIf="password?.invalid && password?.touched">
+        <div *ngIf="password?.errors?.['required']">Password is required</div>
+      </div>
+      <div class="login-btn-container">
+        <button type="submit">Login</button>
+      </div>
+    </form>
+    <div class="login-signup-link">
+      <a href="#">Don't have an account? Signup here</a>
+    </div>
+
+  </div>
 </div>

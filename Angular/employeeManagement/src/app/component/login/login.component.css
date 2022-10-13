@@ -1,4 +1,43 @@
-.page-name
+.login-section
 {
-    font-family: "Poppins", sans-serif;
+  margin:5rem;
+  display: flex;
+  flex-direction: column;
 }
+
+.login-form
+{
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+input,.login-btn-container,.login-signup-link
+{
+  margin: 5px 0;
+}
+
+input
+{
+  padding: 5px;
+}
+
+.login-btn-container,.login-signup-link
+{
+  display: flex;
+  justify-content: center;
+}
+
+.login-btn-container > button
+{
+  padding: 2px;
+  width: 10rem;
+}
+
+.validation
+{
+  font-size: 12px;
+  padding-left: 5px;
+}
+
+
