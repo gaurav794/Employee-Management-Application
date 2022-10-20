@@ -7,13 +7,15 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { LogoutComponent } from './component/logout/logout.component';
 import { PageHeadingComponent } from './component/page-heading/page-heading.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { RegisterComponent } from './component/register/register.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     DashboardComponent,
     LogoutComponent,
-    PageHeadingComponent
+    PageHeadingComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -21,6 +23,6 @@ import {ReactiveFormsModule} from "@angular/forms";
     ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [LoginComponent]
+  bootstrap: [RegisterComponent]
 })
 export class AppModule { }

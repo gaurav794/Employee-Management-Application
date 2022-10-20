@@ -1,0 +1,27 @@
+<div class="register-main main">
+    <div class="register-head head">
+        <!-- Logout Button -->
+        <app-logout></app-logout>
+        <!-- Page Heading  -->
+        <app-page-heading [heading]="page_heading"></app-page-heading>
+    </div>
+
+    <div class="form-section">
+        <form class="form" (ngSubmit)="onSubmit()" [formGroup]=registerForm>
+            <input id="user_name" type="text" placeholder="Full Name" formControlName="user_name">
+            <input id="email" type="text" placeholder="Email" formControlName="email_id">
+            <div class="validation" *ngIf="!isEmailValid">
+                <div>Email is required</div>
+            </div>
+            <input id="phone" type="text" placeholder="Phone Number" formControlName="phone_number">
+            <input id="pass" type="password" placeholder="Password" formControlName="password">
+            <input id="confirmpass" type="password" placeholder="Confirm Password">
+            <div class="btn-container">
+                <button type="submit">Register</button>
+            </div>
+        </form>
+        <div class="login-signup-link">
+            <a href="#">Already have an account? Login here</a>
+        </div>
+    </div>
+</div>

@@ -7,9 +7,9 @@
     <app-page-heading [heading]="page_heading"></app-page-heading>
   </div>
 
-  <div class="login-section">
-    <form class="login-form" (ngSubmit)="onSubmit()"  [formGroup]="login_form">
-      <input id="email" type="text" placeholder="Email" formControlName="email_id" required>
+  <div class="form-section">
+    <form class="form" (ngSubmit)="onSubmit()"  [formGroup]="login_form">
+      <input id="email" type="text" placeholder="Email" formControlName="email_id">
       <div class="validation" *ngIf="!isEmailValid">
         <div>{{emailValidationMsg}}</div>
       </div>
@@ -17,7 +17,7 @@
       <div class="validation" *ngIf="!isPasswordValid">
         <div>{{passwordValidationMsg}}</div>
       </div>
-      <div class="login-btn-container">
+      <div class="btn-container">
         <button type="submit">Login</button>
       </div>
     </form>

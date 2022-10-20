@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit
     });
   }
 
-  public isloginFormValid(form:any)
+  public isloginFormValid(form:any): boolean
   {
     console.log(form);
     let isValid:boolean = true;
@@ -78,7 +78,6 @@ export class LoginComponent implements OnInit
     {
       if(form.password.length < 8 || form.password.length >15)
       {
-        console.log(form.password.length);
         this.passwordValidationMsg = "Password length should be greater than 8 and less than 15";
         this.isPasswordValid = false, isValid = false;
       }

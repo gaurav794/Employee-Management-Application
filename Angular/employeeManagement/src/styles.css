@@ -3,6 +3,7 @@ body
 {
     padding: 4rem;
     font-family: 'Poppins', sans-serif;
+    margin: 0;
 }
 
 .container
@@ -24,4 +25,58 @@ body
 {
   width: 100%;
   text-align: center;
+}
+
+.form-section
+{
+  margin:5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form
+{
+  display: flex;
+  flex-direction: column;
+  min-width: 400px;
+}
+
+input
+{
+  padding: 5px;
+}
+
+.validation
+{
+  color: #db0000;
+  padding-left: 4px;
+  font-size: 14px;
+}
+
+input,.btn-container,.login-signup-link
+{
+  margin: 5px 0;
+}
+
+input 
+{
+  border: 0;
+  background: rgb(164 162 162);
+}
+
+input::placeholder
+{
+  color: rgb(255, 255, 255);
+}
+
+.btn-container,.login-signup-link
+{
+  display: flex;
+  justify-content: center;
+}
+
+.btn-container > button
+{
+  padding: 2px;
+  width: 10rem;
 }
