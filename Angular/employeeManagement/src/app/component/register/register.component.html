@@ -9,13 +9,32 @@
     <div class="form-section">
         <form class="form" (ngSubmit)="onSubmit()" [formGroup]=registerForm>
             <input id="user_name" type="text" placeholder="Full Name" formControlName="user_name">
-            <input id="email" type="text" placeholder="Email" formControlName="email_id">
-            <div class="validation" *ngIf="!isEmailValid">
-                <div>Email is required</div>
+            <div class="validation"
+                *ngIf="(registerFormControl['user_name']?.invalid && registerFormControl['user_name']?.touched) || registerFormControl['user_name']?.dirty">
+                <div *ngIf="registerFormControl['user_name'].errors?.['required']">Full Name is required</div>
+            </div>
+            <input id="email" type="email" placeholder="Email" formControlName="email_id">
+            <div class="validation"
+                *ngIf="(registerFormControl['email_id']?.invalid && registerFormControl['email_id']?.touched) || registerFormControl['email_id']?.dirty">
+                <div *ngIf="registerFormControl['email_id'].errors?.['required']">Email is required</div>
+                <div *ngIf="registerFormControl['email_id'].errors?.['pattern']">Enter a valid email address</div>
             </div>
             <input id="phone" type="text" placeholder="Phone Number" formControlName="phone_number">
+            <div class="validation"
+                *ngIf="(registerFormControl['phone_number']?.invalid && registerFormControl['phone_number']?.touched) || registerFormControl['phone_number']?.dirty">
+                <div *ngIf="registerFormControl['phone_number'].errors?.['required']">Phone Number is required</div>
+            </div>
             <input id="pass" type="password" placeholder="Password" formControlName="password">
-            <input id="confirmpass" type="password" placeholder="Confirm Password">
+            <div class="validation"
+                *ngIf="(registerFormControl['password']?.invalid && registerFormControl['password']?.touched) || registerFormControl['password']?.dirty">
+                <div *ngIf="registerFormControl['password'].errors?.['required']">Password is required</div>
+            </div>
+            <input id="confirmpass" type="password" placeholder="Confirm Password" [formControl]="confirmPassword">
+            <div class="validation"
+                *ngIf="(confirmPassword?.invalid && confirmPassword?.touched) || confirmPassword?.dirty">
+                <div *ngIf="confirmPassword.errors?.['required']">Confirm Password is required</div>
+                <div *ngIf="confirmPassword.errors?.['match']">Passwords do not match</div>
+            </div>
             <div class="btn-container">
                 <button type="submit">Register</button>
             </div>

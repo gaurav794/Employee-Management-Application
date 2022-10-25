@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { TestBed } from '@angular/core/testing';
+import { AbstractControl, FormBuilder, FormGroup, Validators, ValidatorFn, ValidationErrors, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -7,88 +8,44 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  constructor(private fb:FormBuilder) { }
+
+  constructor(private fb: FormBuilder) { }
 
   page_heading: string = "";
-  isEmailValid: boolean = true;
-  isPasswordValid: boolean = true;
   registerForm: FormGroup = this.fb.group({});
+  confirmPassword = new FormControl();
 
-  ngOnInit(): void 
-  {
+  ngOnInit(): void {
     this.page_heading = "Register"
     this.registerForm = this.fb.group
-    (
-    {
-      user_name :[null],
-      email_id:[null],
-      phone_number:[null],
-      password:[null]
-    }
-    );
+      (
+        {
+          user_name: [null, Validators.required],
+          email_id: [null, Validators.compose([Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")])],
+          phone_number: [null, Validators.required],
+          password: [null, Validators.required]
+        }
+      );
+    this.confirmPassword = new FormControl(null, Validators.compose([Validators.required, this.match]));
 
-    this.onEmailValueChange();
-    this.onPasswordValueChange();
   }
 
-  onEmailValueChange(): void
-  {
-    this.registerForm?.get("email_id")?.valueChanges.subscribe(()=>
-    {
-      this.isEmailValid = true;
-    });
+  match(confirm: AbstractControl): { [key: string]: any } | null {
+
+    let pass: string = this.registerForm.get('password')?.value;
+    let confirmPassword: string = confirm.value;
+    const isMatch = pass === confirmPassword;
+    return isMatch ? null : { isMatch: true };
   }
 
-  onPasswordValueChange(): void
-  {
-    this.registerForm?.get("password")?.valueChanges.subscribe(()=>
-    {
-      this.isPasswordValid = true;
-    });
+  get registerFormControl() {
+    return this.registerForm.controls;
   }
 
 
-  public isResgisterFormValid(form:any): boolean
-  {
-    let isValid:boolean = true;
-
-    if(form.email_id === null || form.email_id === "")
-    {
-      this.isEmailValid = false,isValid= false;
-    }
-    else
-    {
-      //email validation
-      let emailRegexPattern:RegExp =/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
-      isValid = emailRegexPattern.test(form.email_id);
-      if(!isValid)
-      {
-        this.isEmailValid = false;
-      }
-    }
-
-    if(form.password === null || form.password === "")
-    {
-      this.isPasswordValid = false, isValid = false;
-    }
-    // password length validation
-    else
-    {
-      if(form.password.length < 8 || form.password.length >15)
-      {
-        this.isPasswordValid = false, isValid = false;
-      }
-    }
-
-    return isValid;
+  public onSubmit() {
+    console.log(this.confirmPassword);
   }
-
-
-
-  public onSubmit() 
-  {
-    console.log("onSubmit function " + this.registerForm.value);
-    this.isResgisterFormValid(this.registerForm.value);
-    }
 
 }
+
