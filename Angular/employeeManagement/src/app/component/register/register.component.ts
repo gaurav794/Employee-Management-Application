@@ -27,8 +27,7 @@ export class RegisterComponent implements OnInit {
           confirmPassword: [null, Validators.required]
         },
         {
-          validator: this.util.matchPassword(),
-          onsubmit
+          validator: this.util.matchPassword()
         }
       );
   }
