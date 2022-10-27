@@ -8,14 +8,19 @@
   </div>
 
   <div class="form-section">
-    <form class="form" (ngSubmit)="onSubmit()"  [formGroup]="login_form">
+    <form class="form" (ngSubmit)="onSubmit()" [formGroup]="loginForm">
       <input id="email" type="text" placeholder="Email" formControlName="email_id">
-      <div class="validation" *ngIf="!isEmailValid">
-        <div>{{emailValidationMsg}}</div>
+      <div class="validation"
+        *ngIf="(loginFormControl['email_id']?.invalid && loginFormControl['email_id']?.touched) || loginFormControl['email_id']?.dirty">
+        <div *ngIf="loginFormControl['email_id'].errors?.['required']">Email is required</div>
+        <div *ngIf="loginFormControl['email_id'].errors?.['pattern']">Enter a valid email address</div>
       </div>
       <input id="pass" type="password" placeholder="Password" formControlName="password">
-      <div class="validation" *ngIf="!isPasswordValid">
-        <div>{{passwordValidationMsg}}</div>
+      <div class="validation"
+        *ngIf="(loginFormControl['password']?.invalid && loginFormControl['password']?.touched) || loginFormControl['password']?.dirty">
+        <div *ngIf="loginFormControl['password'].errors?.['required']">Password is required</div>
+        <div *ngIf="loginFormControl['password'].errors?.['lessLength']">Password length should be greater than 8</div>
+        <div *ngIf="loginFormControl['password'].errors?.['greaterLength']">Password length should be less than 15</div>
       </div>
       <div class="btn-container">
         <button type="submit">Login</button>

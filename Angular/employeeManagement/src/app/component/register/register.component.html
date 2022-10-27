@@ -23,11 +23,19 @@
             <div class="validation"
                 *ngIf="(registerFormControl['phone_number']?.invalid && registerFormControl['phone_number']?.touched) || registerFormControl['phone_number']?.dirty">
                 <div *ngIf="registerFormControl['phone_number'].errors?.['required']">Phone Number is required</div>
+                <div *ngIf="registerFormControl['phone_number'].errors?.['lessDigit']">Phone Number must be 10 digits
+                </div>
             </div>
             <input id="pass" type="password" placeholder="Password" formControlName="password">
             <div class="validation"
                 *ngIf="(registerFormControl['password']?.invalid && registerFormControl['password']?.touched) || registerFormControl['password']?.dirty">
                 <div *ngIf="registerFormControl['password'].errors?.['required']">Password is required</div>
+                <div *ngIf="registerFormControl['password'].errors?.['lessLength']">Password length should be greater
+                    than
+                    8</div>
+                <div *ngIf="registerFormControl['password'].errors?.['greaterLength']">Password length should be less
+                    than
+                    15</div>
             </div>
             <input id="confirmpass" type="password" placeholder="Confirm Password" formControlName="confirmPassword">
             <div class="validation"

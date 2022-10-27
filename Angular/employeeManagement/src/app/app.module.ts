@@ -23,6 +23,6 @@ import { RegisterComponent } from './component/register/register.component';
     ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [RegisterComponent]
+  bootstrap: [LoginComponent]
 })
 export class AppModule { }
