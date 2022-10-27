@@ -28,6 +28,36 @@ export class FormValidatorService {
     }
   }
 
+  passwordLengthValidator(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      let password:string = control?.value;
+      if(password === '') return null;
+
+      let length = password?.length;
+
+      if (length < 8)
+        return { lessLength: true };
+      if (length > 15)
+        return { greaterLength: true };
+
+      return null;
+    }
+  }
+
+  phoneNumberValidator(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      let phoneNumber:string = control?.value;
+      if(phoneNumber === '') return null;
+
+      let length = phoneNumber?.length;
+      
+      if (length < 10)
+        return { lessDigit: true };
+
+      return null;
+    }
+  }
+
   validateForm(registerForm: FormGroup) {
     for (const field in registerForm.controls) {
       let ctrlValue: string = registerForm.controls[field]?.value;
