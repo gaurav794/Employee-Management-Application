@@ -28,16 +28,11 @@ export class FormValidatorService {
     }
   }
 
-  validateForm() {
-    return (form: FormGroup): any | null => 
-    {
-      let user_name: string = form.controls['password']?.value;
-      let email_id: string = form.controls['email_id']?.value;
-      let email_id: string = form.controls['email_id']?.value;
-      let email_id: string = form.controls['email_id']?.value;
-      let email_id: string = form.controls['email_id']?.value;
-      
+  validateForm(registerForm: FormGroup) {
+    for (const field in registerForm.controls) {
+      let ctrlValue: string = registerForm.controls[field]?.value;
+      if (ctrlValue == null)
+        registerForm.controls[field].markAsTouched();
     }
   }
-
 }

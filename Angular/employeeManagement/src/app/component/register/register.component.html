@@ -29,11 +29,12 @@
                 *ngIf="(registerFormControl['password']?.invalid && registerFormControl['password']?.touched) || registerFormControl['password']?.dirty">
                 <div *ngIf="registerFormControl['password'].errors?.['required']">Password is required</div>
             </div>
-            <input id="confirmpass" type="password" placeholder="Confirm Password" [formControl]="confirmPassword">
+            <input id="confirmpass" type="password" placeholder="Confirm Password" formControlName="confirmPassword">
             <div class="validation"
-                *ngIf="(confirmPassword?.invalid && confirmPassword?.touched) || confirmPassword?.dirty">
-                <div *ngIf="confirmPassword.errors?.['required']">Confirm Password is required</div>
-                <div *ngIf="confirmPassword.errors?.['match']">Passwords do not match</div>
+                *ngIf="(registerFormControl['confirmPassword']?.invalid && registerFormControl['confirmPassword']?.touched) || registerFormControl['confirmPassword']?.dirty">
+                <div *ngIf="registerFormControl['confirmPassword'].errors?.['required']">Confirm Password is required
+                </div>
+                <div *ngIf="registerFormControl['confirmPassword'].errors?.['isMatch']">Passwords do not match</div>
             </div>
             <div class="btn-container">
                 <button type="submit">Register</button>
