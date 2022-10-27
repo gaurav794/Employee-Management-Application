@@ -27,10 +27,10 @@ export class RegisterComponent implements OnInit {
           confirmPassword: [null, Validators.required]
         },
         {
-          validator: this.util.matchPassword()
+          validator: this.util.matchPassword(),
+          onsubmit
         }
       );
-
   }
 
   get registerFormControl() {
@@ -39,10 +39,11 @@ export class RegisterComponent implements OnInit {
 
 
   public onSubmit() {
+    //TODO
    if(this.registerForm.valid)
-    console.log("VALID");
+    console.log("VALID: ADD TO DATABASE");
    else
-    console.log("INVALID");
+    this.util.validateForm(this.registerForm);
 
     console.log(this.registerForm);
   }
