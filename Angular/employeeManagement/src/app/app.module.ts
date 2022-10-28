@@ -8,6 +8,8 @@ import { LogoutComponent } from './component/logout/logout.component';
 import { PageHeadingComponent } from './component/page-heading/page-heading.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { RegisterComponent } from './component/register/register.component';
+import { EmployeeComponent } from './component/employee/employee.component';
+import { EmployeeSummaryComponent } from './component/employee/employee-summary/employee-summary.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { RegisterComponent } from './component/register/register.component';
     DashboardComponent,
     LogoutComponent,
     PageHeadingComponent,
-    RegisterComponent
+    RegisterComponent,
+    EmployeeComponent,
+    EmployeeSummaryComponent
   ],
   imports: [
     BrowserModule,
@@ -23,6 +27,6 @@ import { RegisterComponent } from './component/register/register.component';
     ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [LoginComponent]
+  bootstrap: [EmployeeSummaryComponent]
 })
 export class AppModule { }
