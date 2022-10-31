@@ -27,6 +27,6 @@ import { EmployeeSummaryComponent } from './component/employee/employee-summary/
     ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [EmployeeSummaryComponent]
+  bootstrap: [LoginComponent]
 })
 export class AppModule { }
