@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { FormValidatorService } from '../util/form-validator.service';
+import { FormValidatorService } from '../../util/form-validator-service/form-validator.service';
 
 @Component({
   selector: 'app-employee',
@@ -32,11 +32,6 @@ export class EmployeeComponent implements OnInit {
   get EmployeeFormControl()
   {
     return this.employeeForm.controls;
-  }
-
-  resetFormFields()
-  {
-    this.employeeForm.reset();
   }
 
   onSubmit() 

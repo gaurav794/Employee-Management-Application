@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-import { LoginComponent } from './component/login/login.component';
-import { DashboardComponent } from './component/dashboard/dashboard.component';
-import { LogoutComponent } from './component/logout/logout.component';
-import { PageHeadingComponent } from './component/page-heading/page-heading.component';
-import {ReactiveFormsModule} from "@angular/forms";
-import { RegisterComponent } from './component/register/register.component';
-import { EmployeeComponent } from './component/employee/employee.component';
-import { EmployeeSummaryComponent } from './component/employee/employee-summary/employee-summary.component';
+import { DashboardComponent } from './component/dashboard_module/dashboard/dashboard.component';
+import { EmployeeSummaryComponent } from './component/employee_module/employee-summary/employee-summary.component';
+import { EmployeeComponent } from './component/employee_module/employee/employee.component';
+import { LoginComponent } from './component/user_module/login/login.component';
+import { LogoutComponent } from './component/user_module/logout/logout.component';
+import { RegisterComponent } from './component/user_module/register/register.component';
+import { PageHeadingComponent } from './component/util/page-heading/page-heading.component';
+import { PayrollComponent } from './component/payroll_module/payroll/payroll/payroll.component';
+import { PayrollSummaryComponent } from './component/payroll_module/payroll-summary/payroll-summary/payroll-summary.component';
+import { FormValidatorService } from './component/util/form-validator-service/form-validator.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,9 @@ import { EmployeeSummaryComponent } from './component/employee/employee-summary/
     PageHeadingComponent,
     RegisterComponent,
     EmployeeComponent,
-    EmployeeSummaryComponent
+    EmployeeSummaryComponent,
+    PayrollComponent,
+    PayrollSummaryComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +32,7 @@ import { EmployeeSummaryComponent } from './component/employee/employee-summary/
     ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [LoginComponent]
+  // First Page to Load
+  bootstrap: [PayrollComponent]
 })
 export class AppModule { }

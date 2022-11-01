@@ -1,7 +1,7 @@
 import { formatNumber } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
-import { FormValidatorService } from '../util/form-validator.service';
+import { FormValidatorService } from '../../util/form-validator-service/form-validator.service';
 
 @Component({
   selector: 'app-login',

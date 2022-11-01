@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
-import { RegisterComponent } from '../register/register.component';
 
 @Injectable({
   providedIn: 'root'
@@ -61,7 +60,7 @@ export class FormValidatorService {
   validateForm(registerForm: FormGroup) {
     for (const field in registerForm.controls) {
       let ctrlValue: string = registerForm.controls[field]?.value;
-      if (ctrlValue == null)
+      if (ctrlValue == null || ctrlValue == "")
         registerForm.controls[field].markAsTouched();
     }
   }

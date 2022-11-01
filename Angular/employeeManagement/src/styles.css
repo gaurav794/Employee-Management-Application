@@ -97,6 +97,10 @@ input[type="date"] {
   align-items: center;
   margin-top: 4rem;
   width: 80%;
+}
+
+.table
+{
   overflow-x: auto;
   overflow-y: auto;
 }

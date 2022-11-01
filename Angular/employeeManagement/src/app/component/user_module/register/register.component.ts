@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { AbstractControl, FormBuilder, FormGroup, Validators, ValidatorFn, ValidationErrors, FormControl } from '@angular/forms';
-import { FormValidatorService } from '../util/form-validator.service';
+import { FormValidatorService } from '../../util/form-validator-service/form-validator.service';
 
 @Component({
   selector: 'app-register',
