@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
 import { AbstractControl, FormBuilder, FormGroup, Validators, ValidatorFn, ValidationErrors, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserRole } from 'src/app/interface/user-role';
+import { EmployeeManagementService } from 'src/app/service/employee-management/employee-management.service';
+import { RestApiResponseUtil } from 'src/app/service/http-response-util/rest-api-response-util';
+import { ToastService } from 'src/app/service/toast/toast.service';
 import { FormValidatorService } from '../../util/form-validator-service/form-validator.service';
 
 @Component({
@@ -10,9 +14,11 @@ import { FormValidatorService } from '../../util/form-validator-service/form-val
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private util: FormValidatorService) { }
+  constructor(private fb: FormBuilder, private util: FormValidatorService, private employeeManagementService: EmployeeManagementService, private router:Router,
+    private toastService:ToastService) { }
 
   page_heading: string = "";
+  val = "";
   registerForm: FormGroup = this.fb.group({});
 
   ngOnInit(): void {
@@ -37,14 +43,18 @@ export class RegisterComponent implements OnInit {
   }
 
 
-  public onSubmit() {
-    //TODO
+  public onRegister() {
    if(this.registerForm.valid)
-    console.log("VALID: ADD TO DATABASE");
+   {
+    let data:UserRole = this.registerForm.value;
+      this.employeeManagementService.registerUser(data).subscribe(res => 
+        {
+           // TODO: Toast Notifications
+          this.toastService.show(res.status,res.message,4000);
+        });
+   }
    else
     this.util.validateForm(this.registerForm);
-
-    console.log(this.registerForm);
   }
 
 }

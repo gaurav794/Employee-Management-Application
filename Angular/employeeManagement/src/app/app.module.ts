@@ -12,27 +12,31 @@ import { RegisterComponent } from './component/user_module/register/register.com
 import { PageHeadingComponent } from './component/util/page-heading/page-heading.component';
 import { PayrollComponent } from './component/payroll_module/payroll/payroll/payroll.component';
 import { PayrollSummaryComponent } from './component/payroll_module/payroll-summary/payroll-summary/payroll-summary.component';
-import { FormValidatorService } from './component/util/form-validator-service/form-validator.service';
-
+import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ToastComponent } from "./component/util/toast/toast/toast.component";
 @NgModule({
-  declarations: [
-    LoginComponent,
-    DashboardComponent,
-    LogoutComponent,
-    PageHeadingComponent,
-    RegisterComponent,
-    EmployeeComponent,
-    EmployeeSummaryComponent,
-    PayrollComponent,
-    PayrollSummaryComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule
-  ],
-  providers: [],
-  // First Page to Load
-  bootstrap: [PayrollComponent]
+    declarations: [
+        AppComponent,
+        LoginComponent,
+        DashboardComponent,
+        LogoutComponent,
+        PageHeadingComponent,
+        RegisterComponent,
+        EmployeeComponent,
+        EmployeeSummaryComponent,
+        PayrollComponent,
+        PayrollSummaryComponent
+    ],
+    providers: [],
+    // First Page to Load
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        ToastComponent
+    ]
 })
 export class AppModule { }

@@ -7,14 +7,13 @@
     </div>
     <div class="summary">
         <div class="summary-back-btn">
-            <a class="btn back-btn" href="#">Back</a>
+            <a class="btn back-btn" routerLink="/">Back</a>
         </div>
         <div class="table">
             <table>
                 <tr>
                     <th>Sr. No</th>
-                    <th >Payroll ID</th>
-                    <th>Employee ID</th>
+                    <th>Payroll ID</th>
                     <th>Payroll Month</th>
                     <th>Attendance</th>
                     <th>Daily Wage</th>
@@ -25,18 +24,17 @@
                     <th>Date Added</th>
                 </tr>
                 <!-- For Loop -->
-                <tr>
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
+                <tr *ngFor="let payroll of payrolls; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{payroll.payroll_id}}</td>
+                    <td>{{payroll.payroll_month}}</td>
+                    <td>{{payroll.attendance}}</td>
+                    <td>{{payroll.daily_wage}}</td>
+                    <td>{{payroll.generated_salary}}</td>
+                    <td>{{payroll.deductions}}</td>
+                    <td>{{payroll.net_pay}}</td>
+                    <td>{{payroll.payment_mode}}</td>
+                    <td>{{payroll.date_added}}</td>
                 </tr>
             </table>
         </div>

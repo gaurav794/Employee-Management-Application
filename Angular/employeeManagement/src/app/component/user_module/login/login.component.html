@@ -1,14 +1,12 @@
 <div class="login-main main">
 
   <div class="login-head head">
-    <!-- Logout Button -->
-    <app-logout></app-logout>
     <!-- Page Heading  -->
     <app-page-heading [heading]="page_heading"></app-page-heading>
   </div>
 
   <div class="form-section">
-    <form class="form" (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+    <form class="form" (ngSubmit)="onLogin()" [formGroup]="loginForm">
       <input id="email" type="text" placeholder="Email" formControlName="email_id">
       <div class="validation"
         *ngIf="(loginFormControl['email_id']?.invalid && loginFormControl['email_id']?.touched) || loginFormControl['email_id']?.dirty">
@@ -27,7 +25,7 @@
       </div>
     </form>
     <div class="login-signup-link">
-      <a href="#">Don't have an account? Signup here</a>
+      <a routerLink="/signup">Don't have an account? Signup here</a>
     </div>
 
   </div>

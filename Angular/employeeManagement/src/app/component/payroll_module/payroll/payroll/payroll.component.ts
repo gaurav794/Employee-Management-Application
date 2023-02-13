@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormValidatorService } from 'src/app/component/util/form-validator-service/form-validator.service';
+import { Employee } from 'src/app/interface/employee';
+import { RestResponseStatus } from 'src/app/interface/rest-response-status';
+import { EmployeeManagementService } from 'src/app/service/employee-management/employee-management.service';
+import { ToastService } from 'src/app/service/toast/toast.service';
 
 @Component({
   selector: 'app-payroll',
@@ -12,15 +16,22 @@ export class PayrollComponent implements OnInit {
   page_heading: string = "";
   months: number[] = [];
   modeOfPayment: string[] = [];
+  employees:Employee[] = [];
+  employee:any;
   payrollForm: FormGroup = this.fb.group({});
 
-  constructor(private fb: FormBuilder, private util: FormValidatorService) { }
+  constructor(private fb: FormBuilder, private util: FormValidatorService, private employeeManagementService:EmployeeManagementService,
+    private toastService:ToastService) { }
 
   ngOnInit(): void {
     this.page_heading = "Generate Payroll";
     //add 1 to 12 number in the months array
     for (let i = 0; i < 12; i++)
+    {
       this.months[i] = i + 1;
+      console.log("1");
+    }
+    this.getEmployees();
     this.modeOfPayment = ["NEFT", "Cash", "Cheque"];
     this.payrollForm = this.fb.group(
       {
@@ -35,9 +46,31 @@ export class PayrollComponent implements OnInit {
         employee: ["", Validators.required]
       }
     );
-
+    this.getEmployee();
     this.generateSalary();
     this.generateNetPay();
+  }
+
+  getEmployees()
+  {
+   return this.employeeManagementService.getEmployees()
+   .subscribe(res =>{this.employees = res});  
+  }
+
+  getEmployee() 
+  {
+    this.payrollFormControl['employee'].valueChanges.subscribe(
+      () => {
+        //Logic to change daily wage on employee select
+        let employee_pid = this.payrollFormControl['employee'].value;
+        this.employeeManagementService
+        .getEmployeeByPid(employee_pid)
+        .subscribe(result =>
+          {
+            this.payrollFormControl['daily_wage'].setValue(result.daily_wage);
+            this.employee = result;
+          });              
+      });
   }
 
   generateSalary() {
@@ -45,28 +78,44 @@ export class PayrollComponent implements OnInit {
     this.payrollFormControl['attendance'].valueChanges.subscribe(
       () => {
         //Logic to calculate generated salary
-        // this.payrollFormControl['generated_salary'].setValue(5000);
-        // this.payrollFormControl['net_pay'].setValue(5000);
-      });
-    this.payrollFormControl['deductions'].valueChanges.subscribe(
-      () => {
-        //Logic to calculate net salary
-        // this.payrollFormControl['net_pay'].setValue(3000);
+        let attendance = this.payrollFormControl['attendance'].value;
+        let daily_wage = this.payrollFormControl['daily_wage'].value;
+        let generated_salary = attendance*daily_wage;
+        this.payrollFormControl['generated_salary'].setValue(generated_salary);
+        //set value without deductions in amount
+        this.payrollFormControl['net_pay'].setValue(generated_salary);
       });
   }
 
-  generateNetPay() {
-
+  generateNetPay() 
+  {
+    this.payrollFormControl['deductions'].valueChanges.subscribe(
+      () => {
+        //Logic to calculate net salary
+        let deductions = this.payrollFormControl['deductions'].value;
+        let generated_salary = this.payrollFormControl['generated_salary'].value;
+        let net_pay = (generated_salary - deductions);
+        this.payrollFormControl['net_pay'].setValue(net_pay);
+      });
   }
 
   get payrollFormControl() {
     return this.payrollForm.controls;
   }
 
-  onSubmit() {
+  onGenerate() {
     if (this.payrollForm.valid) {
-      console.log("VALID: ADD TO DATABASE");
-      console.log(this.payrollForm.value);
+      let selectedEmployee:Employee = this.employee;
+      let newPayroll:any = this.payrollForm.getRawValue();
+      newPayroll['employee'] = selectedEmployee;
+  
+      this.employeeManagementService.addPayroll(newPayroll).
+      subscribe
+      (res =>
+        {
+          // TODO: Toast Notifications
+          this.toastService.show(res.status,res.message,4000);
+        });
     }
     else
       this.util.validateForm(this.payrollForm);

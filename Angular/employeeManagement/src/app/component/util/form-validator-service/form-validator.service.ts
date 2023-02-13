@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { delay } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -57,11 +58,19 @@ export class FormValidatorService {
     }
   }
 
-  validateForm(registerForm: FormGroup) {
-    for (const field in registerForm.controls) {
-      let ctrlValue: string = registerForm.controls[field]?.value;
+  validateForm(form: FormGroup) {
+    for (const field in form.controls) {
+      let ctrlValue: string = form.controls[field]?.value;
       if (ctrlValue == null || ctrlValue == "")
-        registerForm.controls[field].markAsTouched();
+      form.controls[field].markAsTouched();
+    }
+  }
+
+  resetForm(form: FormGroup)
+  {
+    delay(2000);
+    for (const field in form.controls) {
+      form.controls[field].markAsTouched();
     }
   }
 }

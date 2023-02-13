@@ -1,6 +1,10 @@
 import { formatNumber } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
+import { Router } from '@angular/router';
+import { UserRole } from 'src/app/interface/user-role';
+import { EmployeeManagementService } from 'src/app/service/employee-management/employee-management.service'; 
+import { RestApiResponseUtil } from 'src/app/service/http-response-util/rest-api-response-util';
 import { FormValidatorService } from '../../util/form-validator-service/form-validator.service';
 
 @Component({
@@ -14,7 +18,8 @@ export class LoginComponent implements OnInit
   page_heading: string ="";
   loginForm:FormGroup = this.fb.group({});
 
-  constructor(private fb: FormBuilder,private util:FormValidatorService) { }
+  constructor(private fb: FormBuilder,private util:FormValidatorService,private employeeManagementService:EmployeeManagementService,
+    private router:Router) { }
 
   ngOnInit(): void 
   {
@@ -31,9 +36,20 @@ export class LoginComponent implements OnInit
   }
 
 
-  public onSubmit() {
+  public onLogin() {
     if(this.loginForm.valid)
-      console.log("VALID: CHECK IN DATABASE");
+    {
+      let data:UserRole = this.loginForm.value;
+      
+      this.employeeManagementService.loginUser(data).subscribe(res => 
+        {
+          if(res.status === RestApiResponseUtil.valid)
+            this.router.navigate(['/']);
+        // TODO: Toast Notification for invalid details
+        else{}
+        });
+
+    }
     else
       this.util.validateForm(this.loginForm);
   }

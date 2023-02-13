@@ -6,7 +6,7 @@
         <app-page-heading [heading]="page_heading"></app-page-heading>
     </div>
     <div class="form-section">
-        <form class="form" (ngSubmit)="onSubmit()" [formGroup]="employeeForm">
+        <form class="form" (ngSubmit)="addEmployee()" [formGroup]="employeeForm">
             <input id="pid" type="text" placeholder="Personal Identification Number" formControlName="pid">
             <div class="validation"
                 *ngIf="(EmployeeFormControl['pid']?.invalid && EmployeeFormControl['pid']?.touched) || EmployeeFormControl['pid']?.dirty">
@@ -53,7 +53,7 @@
             </div>
 
             <div class="util-btn-container">
-                <a class="btn close-btn" href="#">Close</a>
+                <a class="btn close-btn" routerLink="/">Close</a>
                 <button class="btn add-btn" type="submit">Add</button>
                 <button class="btn clear-btn" type="reset">Clear</button>
             </div>

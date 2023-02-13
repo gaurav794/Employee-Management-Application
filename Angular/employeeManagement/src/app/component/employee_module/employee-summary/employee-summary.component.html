@@ -7,7 +7,7 @@
     </div>
     <div class="summary">
         <div class="summary-back-btn">
-            <a class="btn back-btn" href="#">Back</a>
+            <a class="btn back-btn" routerLink="/">Back</a>
         </div>
         <div class="table">
             <table>
@@ -18,15 +18,21 @@
                     <th>Phone Number</th>
                     <th>Position</th>
                     <th>Daily Wage</th>
+                    <th>Date Of Joining</th>
+                    <th>Last Day</th>
+                    <th>Date Added</th>
                 </tr>
                 <!-- For Loop -->
-                <tr>
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
+                <tr *ngFor="let employee of employees; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{employee.name}}</td>
+                    <td>{{employee.address}}</td>
+                    <td>{{employee.phone_number}}</td>
+                    <td>{{employee.designation}}</td>
+                    <td>{{employee.daily_wage}}</td>
+                    <td>{{employee.doj}}</td>
+                    <td>{{employee.last_day}}</td>
+                    <td>{{employee.date_added}}</td>
                 </tr>
             </table>
         </div>
