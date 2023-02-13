@@ -28,6 +28,10 @@ public class UserRole
 
     public UserRole() {
     }
+    public UserRole(String email_id, String password) {
+        this.email_id = email_id;
+        this.password = password;
+    }
 
     public UserRole(String user_name, String email_id, Long phone_number, String password, Date date_added) {
         this.user_name = user_name;

@@ -13,6 +13,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "http://localhost:4200/", maxAge = 1800)
 //COMPLETED
 public class EmployeeManagementRestController {
     private final EmployeeManagementService employeeManagementService;
@@ -23,9 +24,9 @@ public class EmployeeManagementRestController {
 
     //get user from the database
     @GetMapping("/login")
-    @ResponseBody
-    public ResponseEntity getUserRole(@Valid @RequestBody UserRole details) {
+    public ResponseEntity getUserRole(@RequestParam(value="email_id") String email_id,@RequestParam(value = "password") String password) {
         boolean flag = false;
+        UserRole details = new UserRole(email_id,password);
         try {
             flag = employeeManagementService.findUserRole(details);
         } catch (Exception e) {
@@ -36,54 +37,35 @@ public class EmployeeManagementRestController {
                 : successMessage("Valid User"), HttpStatus.OK);
     }
 
-    //add user to the database
-    @PostMapping("/signup")
+    //add user role to the database
+    @PostMapping("/register")
     @ResponseBody
     public ResponseEntity addUserRole(@Valid @RequestBody UserRole details) {
-        ResponseEntity flag = null;
-        try {
-            flag = employeeManagementService.saveUserRole(details);
-        } catch (Exception e) {
-            return new ResponseEntity(errorMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-        return new ResponseEntity(successMessage("Role added successfully."), HttpStatus.OK);
+        return employeeManagementService.saveUserRole(details);
     }
 
     //get list of employees from the database
     @GetMapping("/getEmployees")
     public ResponseEntity getEmployeeList() {
-        ResponseEntity flag = null;
-        try {
-            flag = employeeManagementService.getEmployees();
-        } catch (Exception e) {
-            return new ResponseEntity(errorMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-        return new ResponseEntity(flag.getBody(), flag.getStatusCode());
+        return employeeManagementService.getEmployees();
+    }
+
+    @GetMapping("/getEmployee")
+    public ResponseEntity getEmployee(@RequestParam(value="pid") String pid) {
+        return employeeManagementService.getEmployeeByPid(pid);
     }
 
     //add employee to the database
     @PostMapping("/addEmployee")
     @ResponseBody
     public ResponseEntity addEmployeeDetails(@Valid @RequestBody Employee employee) {
-        ResponseEntity flag = null;
-        try {
-            flag = employeeManagementService.addEmployee(employee);
-        } catch (Exception e) {
-            return new ResponseEntity(errorMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-        return new ResponseEntity(successMessage("Employee added successfully."), HttpStatus.OK);
+        return employeeManagementService.addEmployee(employee);
     }
 
     @GetMapping("/getPayrolls")
     @ResponseBody
     public ResponseEntity getEmployeePayrolls() {
-        ResponseEntity flag = null;
-        try {
-            flag = employeeManagementService.getPayrolls();
-        } catch (Exception e) {
-            return new ResponseEntity(e, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-        return new ResponseEntity(flag.getBody(), flag.getStatusCode());
+        return employeeManagementService.getPayrolls();
     }
 
     @PostMapping("/addPayroll")
@@ -110,6 +92,5 @@ public class EmployeeManagementRestController {
         return new RestResponseStatus("INTERNAL_SERVER_ERROR",
                 "Internal server error, please try again after sometime. If this problem continues, contact IT Department.");
     }
-
 
 }

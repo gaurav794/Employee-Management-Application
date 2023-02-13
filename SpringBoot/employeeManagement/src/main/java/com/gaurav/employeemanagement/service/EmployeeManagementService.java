@@ -1,11 +1,13 @@
 package com.gaurav.employeemanagement.service;
 
+import com.gaurav.employeemanagement.exceptionHandler.RestResponseStatus;
 import com.gaurav.employeemanagement.model.Employee;
 import com.gaurav.employeemanagement.model.Payroll;
 import com.gaurav.employeemanagement.model.UserRole;
 import com.gaurav.employeemanagement.repository.EmployeeRepository;
 import com.gaurav.employeemanagement.repository.PayrollRepository;
 import com.gaurav.employeemanagement.repository.UserRepository;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -52,11 +54,15 @@ public class EmployeeManagementService
         {
             userRepository.save(newUser);
         }
-        catch(Exception e)
+        catch(DataIntegrityViolationException e)
         {
-           return new ResponseEntity(e, HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity(failureMessage("User Role with email id already exists!"), HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return new ResponseEntity(newUser, HttpStatus.OK);
+        catch (Exception e) {
+            return new ResponseEntity(errorMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity(successMessage("User Role added successfully."), HttpStatus.OK);
+
     }
 
     //get employees from Employee table
@@ -66,12 +72,31 @@ public class EmployeeManagementService
         try
         {
             listOfEmployee = employeeRepository.findAll();
+            if(listOfEmployee == null)
+                return new ResponseEntity(successMessage("NO RECORDS FOUND"), HttpStatus.OK);
         }
         catch(Exception e)
         {
-            return new ResponseEntity(e, HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity(errorMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity(listOfEmployee, HttpStatus.OK);
+    }
+
+    //get employee by pid from Employee table
+    public ResponseEntity getEmployeeByPid(String pid)
+    {
+        Employee employee = null;
+        try
+        {
+            employee = employeeRepository.findByPid(pid);
+            if(employee == null)
+                return new ResponseEntity(successMessage("NO RECORDS FOUND"), HttpStatus.OK);
+        }
+        catch(Exception e)
+        {
+            return new ResponseEntity(errorMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity(employee, HttpStatus.OK);
     }
 
     //Add new employee to the Employee table
@@ -82,11 +107,14 @@ public class EmployeeManagementService
         {
             employeeRepository.save(newEmployee);
         }
-        catch(Exception e)
+        catch(DataIntegrityViolationException e)
         {
-            return new ResponseEntity(e, HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity(failureMessage("Employee with PID already exists!"), HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return new ResponseEntity(newEmployee, HttpStatus.OK);
+        catch (Exception e) {
+            return new ResponseEntity(errorMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity(successMessage("Employee added successfully."), HttpStatus.OK);
     }
 
     //get payrolls from Payroll table
@@ -96,10 +124,12 @@ public class EmployeeManagementService
         try
         {
             listOfPayroll = payrollRepository.findAll();
+            if(listOfPayroll == null)
+                return new ResponseEntity(successMessage("NO RECORDS FOUND"), HttpStatus.OK);
         }
         catch(Exception e)
         {
-            return new ResponseEntity(e, HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity(errorMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity(listOfPayroll, HttpStatus.OK);
     }
@@ -117,5 +147,18 @@ public class EmployeeManagementService
             return new ResponseEntity(e, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity(newPayroll, HttpStatus.OK);
+    }
+
+    private RestResponseStatus successMessage(String message) {
+        return new RestResponseStatus("SUCCESS", message);
+    }
+
+    private RestResponseStatus failureMessage(String message) {
+        return new RestResponseStatus("FAILURE", message);
+    }
+
+    private RestResponseStatus errorMessage() {
+        return new RestResponseStatus("INTERNAL_SERVER_ERROR",
+                "Internal server error, please try again after sometime. If this problem continues, contact IT Department.");
     }
 }
