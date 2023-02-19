@@ -1,3 +1,11 @@
 .back-btn {
     background: rgb(255, 66, 66);
 }
+
+th {
+    background: #4a4a4a;
+  }
+  
+  td {
+    background: #3b3b3b;
+  }

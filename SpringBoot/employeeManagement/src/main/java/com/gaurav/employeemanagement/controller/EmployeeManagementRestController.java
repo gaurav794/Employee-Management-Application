@@ -71,14 +71,8 @@ public class EmployeeManagementRestController {
     @PostMapping("/addPayroll")
     @ResponseBody
     public ResponseEntity addEmployeePayroll(@Valid @RequestBody Payroll payroll) {
-        ResponseEntity flag = null;
-        try {
-            flag = employeeManagementService.addPayroll(payroll);
-        } catch (Exception e) {
-            return new ResponseEntity(errorMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        return employeeManagementService.addPayroll(payroll);
         }
-        return new ResponseEntity(successMessage("Payroll generated successfully."), HttpStatus.OK);
-    }
 
     private RestResponseStatus successMessage(String message) {
         return new RestResponseStatus("SUCCESS", message);

@@ -47,5 +47,4 @@ export class EmployeeManagementService {
     return this.http.post<RestResponseStatus>(`${this.url}/addPayroll`, payroll);
   }
 
-  //handle error
 }

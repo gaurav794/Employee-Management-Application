@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormValidatorService } from 'src/app/component/util/form-validator-service/form-validator.service';
@@ -29,7 +30,6 @@ export class PayrollComponent implements OnInit {
     for (let i = 0; i < 12; i++)
     {
       this.months[i] = i + 1;
-      console.log("1");
     }
     this.getEmployees();
     this.modeOfPayment = ["NEFT", "Cash", "Cheque"];
@@ -111,11 +111,17 @@ export class PayrollComponent implements OnInit {
   
       this.employeeManagementService.addPayroll(newPayroll).
       subscribe
-      (res =>
-        {
-          // TODO: Toast Notifications
-          this.toastService.show(res.status,res.message,4000);
-        });
+      ({
+        next: (res) => {
+          // TODO: Toast Notifications for success
+          this.toastService.show(res.status, res.message, 4000);
+        },
+        error: (err:HttpErrorResponse) => {
+           // TODO: Toast Notifications for error
+           let errData:RestResponseStatus = err.error;
+          this.toastService.show(errData.status, errData.message, 4000);
+         }
+      });
     }
     else
       this.util.validateForm(this.payrollForm);

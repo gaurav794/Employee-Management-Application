@@ -55,8 +55,6 @@ export class EmployeeComponent implements OnInit {
             this.toastService.show(errData.status, errData.message, 4000);
            }
         });
-        //reset form values
-        this.util.resetForm(this.employeeForm);
     }
     else
       this.util.validateForm(this.employeeForm);

@@ -9,6 +9,7 @@ import { EmployeeManagementService } from 'src/app/service/employee-management/e
 export class EmployeeSummaryComponent implements OnInit 
 {
   page_heading: string = "";
+  isLoaded:boolean | undefined;
   employees: Employee[] = [];
 
   constructor(private employeeManagementService: EmployeeManagementService) { }
@@ -16,6 +17,7 @@ export class EmployeeSummaryComponent implements OnInit
   ngOnInit(): void 
   {
     this.page_heading = "Employee Summary";
+    this.isLoaded = false;
     this.getEmployees();
   }
 
@@ -25,8 +27,11 @@ export class EmployeeSummaryComponent implements OnInit
    .subscribe(
     res =>
     {
-      this.employees = res;
-      console.log(res);     
+      //Disable Progress Bar
+      if(res)
+        this.isLoaded = true;
+        //Store List of employees
+      this.employees = res;   
     }
     );
   }

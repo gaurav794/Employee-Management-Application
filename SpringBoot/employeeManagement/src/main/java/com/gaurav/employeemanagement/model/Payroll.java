@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 
@@ -34,7 +35,7 @@ public class Payroll
     @Column(length = 6,nullable = false)
     @NotBlank
     private String payment_mode;
-    private Date date_added;
+    private String date_added;
     //Foreign key from Employee
     @ManyToOne
     @JoinColumn(name = "employee_id",nullable = false)
@@ -43,7 +44,7 @@ public class Payroll
     public Payroll() {
     }
 
-    public Payroll(int payroll_month, int attendance, int daily_wage, int generated_salary, int deductions, int net_pay, String payment_mode, Date date_added, Employee employee) {
+    public Payroll(int payroll_month, int attendance, int daily_wage, int generated_salary, int deductions, int net_pay, String payment_mode, String date_added, Employee employee) {
         this.payroll_month = payroll_month;
         this.attendance = attendance;
         this.daily_wage = daily_wage;
@@ -119,11 +120,11 @@ public class Payroll
         this.payment_mode = payment_mode;
     }
 
-    public Date getDate_added() {
+    public String getDate_added() {
         return date_added;
     }
 
-    public void setDate_added(Date date_added) {
+    public void setDate_added(String date_added) {
         this.date_added = date_added;
     }
 

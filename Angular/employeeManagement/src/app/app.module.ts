@@ -15,6 +15,7 @@ import { PayrollSummaryComponent } from './component/payroll_module/payroll-summ
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastComponent } from "./component/util/toast/toast/toast.component";
+import { ProgressBarComponent } from './component/util/progress-bar/progress-bar.component';
 @NgModule({
     declarations: [
         AppComponent,
@@ -36,7 +37,8 @@ import { ToastComponent } from "./component/util/toast/toast/toast.component";
         AppRoutingModule,
         ReactiveFormsModule,
         HttpClientModule,
-        ToastComponent
+        ToastComponent,
+        ProgressBarComponent
     ]
 })
 export class AppModule { }

@@ -99,10 +99,29 @@ input[type="date"] {
   width: 80%;
 }
 
+.progress-bar-container
+{
+  width: 80%;
+  margin: 30%;
+}
+
 .table
 {
   overflow-x: auto;
   overflow-y: auto;
+  animation: animate 1s ease-in;
+}
+
+@keyframes animate {
+  0%{
+    opacity: 0%;
+  }
+  50%{
+    opacity: 50%;
+  }
+  100%{
+    opacity: 100%;
+  }
 }
 
 .summary-back-btn {
@@ -137,33 +156,29 @@ table {
   color: #e3e3e3;
 }
 
+tr
+{
+  border: 0;
+}
+
+th,td {
+  width: 12%;
+  padding: 10px;
+}
+
 th:first-child {
-  border-radius: 5px 0 0 0;
+  border-top-left-radius: 5px;
 }
 
 th:last-child {
-  border-radius: 0 5px 0 0;
+  border-top-right-radius: 5px;
 }
 
 tr:last-child>td:first-child {
-  border-radius: 0 0 0 5px;
+  border-bottom-left-radius: 5px;
 }
 
 tr:last-child>td:last-child {
-  border-radius: 0 0 5px 0;
+  border-bottom-right-radius: 5px;
 }
 
-th,
-td {
-  width: 12%;
-  padding: 10px;
-  border-color: aqua;
-}
-
-th {
-  background: #4a4a4a;
-}
-
-td {
-  background: #3b3b3b;
-}

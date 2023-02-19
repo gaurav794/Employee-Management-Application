@@ -5,11 +5,16 @@
         <!-- Page Heading  -->
         <app-page-heading [heading]="page_heading"></app-page-heading>
     </div>
+
     <div class="summary">
         <div class="summary-back-btn">
             <a class="btn back-btn" routerLink="/">Back</a>
         </div>
-        <div class="table">
+        <!-- Progress Bar -->
+        <div class="progress-bar-container" *ngIf="!isLoaded">
+            <app-progress-bar></app-progress-bar>
+        </div>
+        <div *ngIf="isLoaded" class="table">
             <table>
                 <tr>
                     <th>Sr. No</th>
