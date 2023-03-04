@@ -15,16 +15,21 @@
                 *ngIf="(payrollFormControl['payroll_month']?.invalid && payrollFormControl['payroll_month']?.touched) || payrollFormControl['payroll_month']?.dirty">
                 <div *ngIf="payrollFormControl['payroll_month'].errors?.['required']">Payroll Month is required</div>
             </div>
+            <input id="payroll_year" type="number" placeholder="Year" formControlName="payroll_year">
+            <div class="validation"
+                *ngIf="(payrollFormControl['payroll_year']?.invalid && payrollFormControl['payroll_year']?.touched) || payrollFormControl['payroll_year']?.dirty">
+                <div *ngIf="payrollFormControl['payroll_year'].errors?.['required']">Year is required</div>
+            </div>
             <select id="employee" formControlName="employee">
                 <option value="" selected hidden>Select Employee</option>
-                <option *ngFor="let employee of employees" value="{{employee.pid}}">{{employee.pid}}</option>
+                <option *ngFor="let employee of employees" value="{{employee.pid}}">{{employee.pid+" - "+employee.name}}</option>
             </select>
             <div class="validation"
                 *ngIf="(payrollFormControl['employee']?.invalid && payrollFormControl['employee']?.touched) || payrollFormControl['employee']?.dirty">
                 <div *ngIf="payrollFormControl['employee'].errors?.['required']">Employee is required</div>
             </div>
             <div class="attendance-wage">
-                <div >
+                <div>
                     <input id="attendance" type="number" placeholder="Attendance" formControlName="attendance">
                     <div class="validation"
                         *ngIf="(payrollFormControl['attendance']?.invalid && payrollFormControl['attendance']?.touched) || payrollFormControl['attendance']?.dirty">
@@ -32,7 +37,7 @@
                     </div>
                 </div>
                 <div>
-                    <input id="daily_wage" type="number" placeholder="Daily Wage" formControlName="daily_wage" >
+                    <input id="daily_wage" type="number" placeholder="Daily Wage" formControlName="daily_wage">
                 </div>
             </div>
             <input id="generated_salary" type="text" placeholder="Generated Salary" formControlName="generated_salary">
@@ -46,6 +51,7 @@
                 *ngIf="(payrollFormControl['payment_mode']?.invalid && payrollFormControl['payment_mode']?.touched) || payrollFormControl['payment_mode']?.dirty">
                 <div *ngIf="payrollFormControl['payment_mode'].errors?.['required']">Payment Mode is required</div>
             </div>
+            <label class="date-label" for="date_added">Today's Date</label>
             <input id="date_added" type="date" formControlName="date_added">
             <div class="validation"
                 *ngIf="(payrollFormControl['date_added']?.invalid && payrollFormControl['date_added']?.touched) || payrollFormControl['date_added']?.dirty">

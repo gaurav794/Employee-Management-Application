@@ -20,6 +20,9 @@ public class Payroll
     @Column(length = 2,nullable = false)
     @NotNull
     private int payroll_month;
+    @Column(length = 4,nullable = false)
+    @NotNull
+    private int payroll_year;
     @Column(length = 2,nullable = false)
     @NotNull
     private int attendance;
@@ -35,7 +38,7 @@ public class Payroll
     @Column(length = 6,nullable = false)
     @NotBlank
     private String payment_mode;
-    private String date_added;
+    private Date date_added;
     //Foreign key from Employee
     @ManyToOne
     @JoinColumn(name = "employee_id",nullable = false)
@@ -44,8 +47,9 @@ public class Payroll
     public Payroll() {
     }
 
-    public Payroll(int payroll_month, int attendance, int daily_wage, int generated_salary, int deductions, int net_pay, String payment_mode, String date_added, Employee employee) {
+    public Payroll(int payroll_month, int payroll_year, int attendance, int daily_wage, int generated_salary, int deductions, int net_pay, String payment_mode, Date date_added, Employee employee) {
         this.payroll_month = payroll_month;
+        this.payroll_year = payroll_year;
         this.attendance = attendance;
         this.daily_wage = daily_wage;
         this.generated_salary = generated_salary;
@@ -70,6 +74,14 @@ public class Payroll
 
     public void setPayroll_month(int payroll_month) {
         this.payroll_month = payroll_month;
+    }
+
+    public int getPayroll_year() {
+        return payroll_year;
+    }
+
+    public void setPayroll_year(int payroll_year) {
+        this.payroll_year = payroll_year;
     }
 
     public int getAttendance() {
@@ -120,11 +132,11 @@ public class Payroll
         this.payment_mode = payment_mode;
     }
 
-    public String getDate_added() {
+    public Date getDate_added() {
         return date_added;
     }
 
-    public void setDate_added(String date_added) {
+    public void setDate_added(Date date_added) {
         this.date_added = date_added;
     }
 
@@ -132,6 +144,7 @@ public class Payroll
     public Employee getEmployee() {
         return employee;
     }
+
     public void setEmployee(Employee employee) {
         this.employee = employee;
     }
@@ -141,12 +154,12 @@ public class Payroll
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Payroll payroll = (Payroll) o;
-        return Objects.equals(payroll_id, payroll.payroll_id) && Objects.equals(payroll_month, payroll.payroll_month) && Objects.equals(attendance, payroll.attendance) && Objects.equals(daily_wage, payroll.daily_wage) && Objects.equals(generated_salary, payroll.generated_salary) && Objects.equals(deductions, payroll.deductions) && Objects.equals(net_pay, payroll.net_pay) && Objects.equals(payment_mode, payroll.payment_mode) && Objects.equals(date_added, payroll.date_added) && Objects.equals(employee, payroll.employee);
+        return payroll_month == payroll.payroll_month && payroll_year == payroll.payroll_year && attendance == payroll.attendance && daily_wage == payroll.daily_wage && generated_salary == payroll.generated_salary && deductions == payroll.deductions && net_pay == payroll.net_pay && Objects.equals(payroll_id, payroll.payroll_id) && Objects.equals(payment_mode, payroll.payment_mode) && Objects.equals(date_added, payroll.date_added) && Objects.equals(employee, payroll.employee);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(payroll_id, payroll_month, attendance, daily_wage, generated_salary, deductions, net_pay, payment_mode, date_added, employee);
+        return Objects.hash(payroll_id, payroll_month, payroll_year, attendance, daily_wage, generated_salary, deductions, net_pay, payment_mode, date_added, employee);
     }
 
     @Override
@@ -154,6 +167,7 @@ public class Payroll
         return "Payroll{" +
                 "payroll_id=" + payroll_id +
                 ", payroll_month=" + payroll_month +
+                ", payroll_year=" + payroll_year +
                 ", attendance=" + attendance +
                 ", daily_wage=" + daily_wage +
                 ", generated_salary=" + generated_salary +
@@ -161,7 +175,6 @@ public class Payroll
                 ", net_pay=" + net_pay +
                 ", payment_mode='" + payment_mode + '\'' +
                 ", date_added=" + date_added +
-                ", employee=" + employee +
                 '}';
     }
 }

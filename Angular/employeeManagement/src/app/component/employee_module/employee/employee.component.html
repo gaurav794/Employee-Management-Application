@@ -30,12 +30,8 @@
                 </div>
             </div>
             <select id="designation" formControlName="designation">
-                <option value="" selected disabled hidden>Select Designation</option>
-                <option value="Manager">Manager</option>
-                <option value="Superviser">Superviser</option>
-                <option value="Welder">Welder</option>
-                <option value="Fitter">Fitter</option>
-                <option value="Helper">Helper</option>
+                <option ngValue="" selected disabled hidden>Select Designation</option>
+                <option *ngFor="let desig of designations" value="{{desig}}">{{desig}}</option>
             </select>
             <div class="validation"
                 *ngIf="(EmployeeFormControl['designation']?.invalid && EmployeeFormControl['designation']?.touched) || EmployeeFormControl['designation']?.dirty">
@@ -46,6 +42,7 @@
                 *ngIf="(EmployeeFormControl['daily_wage']?.invalid && EmployeeFormControl['daily_wage']?.touched) || EmployeeFormControl['daily_wage']?.dirty">
                 <div *ngIf="EmployeeFormControl['daily_wage'].errors?.['required']">Daily Wage is required</div>
             </div>
+            <label class="date-label" for="doj">Date of Joining</label>
             <input id="doj" type="date" placeholder="Date of Joining" formControlName="doj">
             <div class="validation"
                 *ngIf="(EmployeeFormControl['doj']?.invalid && EmployeeFormControl['doj']?.touched) || EmployeeFormControl['doj']?.dirty">

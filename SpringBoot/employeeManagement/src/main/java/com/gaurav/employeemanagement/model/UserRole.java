@@ -24,7 +24,7 @@ public class UserRole
     @Column(length = 15,nullable = false)
     @NotBlank
     private String password;
-    private String date_added;
+    private Date date_added;
 
     public UserRole() {
     }
@@ -33,7 +33,7 @@ public class UserRole
         this.password = password;
     }
 
-    public UserRole(String user_name, String email_id, Long phone_number, String password, String date_added) {
+    public UserRole(String user_name, String email_id, Long phone_number, String password, Date date_added) {
         this.user_name = user_name;
         this.email_id = email_id;
         this.phone_number = phone_number;
@@ -81,11 +81,11 @@ public class UserRole
         this.password = password;
     }
 
-    public String getDate_added() {
+    public Date getDate_added() {
         return date_added;
     }
 
-    public void setDate_added(String date_added) {
+    public void setDate_added(Date date_added) {
         this.date_added = date_added;
     }
 

@@ -5,6 +5,7 @@ export interface Payroll
 {
     payroll_id:number;
     payroll_month:number;
+    payroll_year:number;
     attendance:number;
     daily_wage:number;
     generated_salary:number;

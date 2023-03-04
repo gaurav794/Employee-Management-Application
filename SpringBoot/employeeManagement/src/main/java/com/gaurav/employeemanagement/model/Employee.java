@@ -33,17 +33,17 @@ public class Employee
     @Column(length = 3,nullable = false)
     private int daily_wage;
     //date of joining
-    private String doj;
+    private Date doj;
     //last day of working
-    private String last_day;
-    private String date_added;
+    private Date last_day;
+    private Date date_added;
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
     private Set<Payroll> payrolls;
 
     public Employee() {
     }
 
-    public Employee(String pid, String name, String address, Long phone_number, String designation, int daily_wage, String doj, String last_day, String date_added) {
+    public Employee(String pid, String name, String address, Long phone_number, String designation, int daily_wage, Date doj, Date last_day, Date date_added) {
         this.pid = pid;
         this.name = name;
         this.address = address;
@@ -111,27 +111,27 @@ public class Employee
         this.daily_wage = daily_wage;
     }
 
-    public String getDoj() {
+    public Date getDoj() {
         return doj;
     }
 
-    public void setDoj(String doj) {
+    public void setDoj(Date doj) {
         this.doj = doj;
     }
 
-    public String getLast_day() {
+    public Date getLast_day() {
         return last_day;
     }
 
-    public void setLast_day(String last_day) {
+    public void setLast_day(Date last_day) {
         this.last_day = last_day;
     }
 
-    public String getDate_added() {
+    public Date getDate_added() {
         return date_added;
     }
 
-    public void setDate_added(String date_added) {
+    public void setDate_added(Date date_added) {
         this.date_added = date_added;
     }
 

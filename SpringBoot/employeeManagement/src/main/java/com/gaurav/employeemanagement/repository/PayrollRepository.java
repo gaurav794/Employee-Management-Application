@@ -15,6 +15,6 @@ public interface PayrollRepository extends CrudRepository<Payroll, Long>
     @Override
     List<Payroll> findAll();
 
-@Query("SELECT p from Payroll p where p.payroll_month = ?1 and p.date_added like ?2% and p.employee.employee_id =?3")
-public Payroll findPayrollByPayroll_monthAndDate_addedAndEmployee_id(int month, String date,Long employee_id);
+@Query("SELECT p from Payroll p where p.payroll_month = ?1 and p.payroll_year = ?2 and p.employee.employee_id =?3")
+public Payroll findPayrollByMonthYearAndEmployee_id(int month, int year,Long employee_id);
 }

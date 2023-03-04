@@ -68,9 +68,6 @@ export class FormValidatorService {
 
   resetForm(form: FormGroup)
   {
-    delay(2000);
-    for (const field in form.controls) {
-      form.controls[field].markAsTouched();
-    }
+    form.reset();
   }
 }

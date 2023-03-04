@@ -37,7 +37,7 @@ body {
 
 input,
 textarea,
-select{
+select {
   padding: 5px;
 }
 
@@ -45,6 +45,11 @@ select{
   color: #db0000;
   padding-left: 4px;
   font-size: 14px;
+}
+
+.date-label {
+  padding-left: 0.2rem;
+  font-size: 0.9rem;
 }
 
 input,
@@ -64,7 +69,7 @@ select {
 }
 
 input::placeholder,
-textarea::placeholder{
+textarea::placeholder {
   color: rgb(255, 255, 255);
 }
 
@@ -99,27 +104,27 @@ input[type="date"] {
   width: 80%;
 }
 
-.progress-bar-container
-{
+.progress-bar-container {
   width: 80%;
   margin: 30%;
 }
 
-.table
-{
+.table {
   overflow-x: auto;
   overflow-y: auto;
   animation: animate 1s ease-in;
 }
 
 @keyframes animate {
-  0%{
+  0% {
     opacity: 0%;
   }
-  50%{
+
+  50% {
     opacity: 50%;
   }
-  100%{
+
+  100% {
     opacity: 100%;
   }
 }
@@ -156,12 +161,12 @@ table {
   color: #e3e3e3;
 }
 
-tr
-{
+tr {
   border: 0;
 }
 
-th,td {
+th,
+td {
   width: 12%;
   padding: 10px;
 }
@@ -181,4 +186,3 @@ tr:last-child>td:first-child {
 tr:last-child>td:last-child {
   border-bottom-right-radius: 5px;
 }
-
