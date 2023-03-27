@@ -1,18 +1,19 @@
-.dash-items
-{
-   display: flex;
-   margin-top: 5rem;
+.dash-items {
+  display: flex;
+  margin-top: 5rem;
 }
-.dash-item
-{
-    padding: 2rem;
-    margin: 3rem 1rem;
-    font-size: 20px;
-    background-color: rgb(174, 174, 174);
-    border-radius: 20px;
-    color: #000;
-    font-weight: bold;
-    width: 100px;
-    text-align: center;
+.dash-item {
+  padding: 2rem;
+  margin: 3rem 1rem;
+  font-size: 20px;
+  background-color: rgb(174, 174, 174);
+  border-radius: 20px;
+  color: #000;
+  font-weight: bold;
+  width: 200px;
+  text-align: center;
 }
 
+a {
+  color: black;
+}

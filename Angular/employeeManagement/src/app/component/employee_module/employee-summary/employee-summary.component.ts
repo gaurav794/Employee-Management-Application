@@ -4,37 +4,27 @@ import { EmployeeManagementService } from 'src/app/service/employee-management/e
 @Component({
   selector: 'app-employee-summary',
   templateUrl: './employee-summary.component.html',
-  styleUrls: ['./employee-summary.component.css']
+  styleUrls: ['./employee-summary.component.css'],
 })
-export class EmployeeSummaryComponent implements OnInit 
-{
-  page_heading: string = "";
-  isLoaded:boolean | undefined;
+export class EmployeeSummaryComponent implements OnInit {
+  page_heading: string = '';
+  isLoaded: boolean | undefined;
   employees: Employee[] = [];
 
-  constructor(private employeeManagementService: EmployeeManagementService) { }
+  constructor(private employeeManagementService: EmployeeManagementService) {}
 
-  ngOnInit(): void 
-  {
-    this.page_heading = "Employee Summary";
+  ngOnInit(): void {
+    this.page_heading = 'Employee Summary';
     this.isLoaded = false;
     this.getEmployees();
   }
 
-  getEmployees()
-  {
-   this.employeeManagementService.getEmployees()
-   .subscribe(
-    res =>
-    {
+  getEmployees() {
+    this.employeeManagementService.getEmployees().subscribe((res) => {
       //Disable Progress Bar
-      if(res)
-        this.isLoaded = true;
-        //Store List of employees
-      this.employees = res;   
-    }
-    );
+      if (res) this.isLoaded = true;
+      //Store List of employees
+      this.employees = res;
+    });
   }
-
-
 }

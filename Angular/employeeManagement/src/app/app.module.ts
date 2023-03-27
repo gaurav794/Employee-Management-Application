@@ -13,32 +13,35 @@ import { PageHeadingComponent } from './component/util/page-heading/page-heading
 import { PayrollComponent } from './component/payroll_module/payroll/payroll/payroll.component';
 import { PayrollSummaryComponent } from './component/payroll_module/payroll-summary/payroll-summary/payroll-summary.component';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
-import { ToastComponent } from "./component/util/toast/toast/toast.component";
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ToastComponent } from './component/util/toast/toast/toast.component';
 import { ProgressBarComponent } from './component/util/progress-bar/progress-bar.component';
+import { XhrInterceptor } from './service/http-request-interceptor/http-request-interceptor';
 @NgModule({
-    declarations: [
-        AppComponent,
-        LoginComponent,
-        DashboardComponent,
-        LogoutComponent,
-        PageHeadingComponent,
-        RegisterComponent,
-        EmployeeComponent,
-        EmployeeSummaryComponent,
-        PayrollComponent,
-        PayrollSummaryComponent
-    ],
-    providers: [],
-    // First Page to Load
-    bootstrap: [AppComponent],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        ReactiveFormsModule,
-        HttpClientModule,
-        ToastComponent,
-        ProgressBarComponent
-    ]
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    DashboardComponent,
+    LogoutComponent,
+    PageHeadingComponent,
+    RegisterComponent,
+    EmployeeComponent,
+    EmployeeSummaryComponent,
+    PayrollComponent,
+    PayrollSummaryComponent,
+  ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true },
+  ],
+  // First Page to Load
+  bootstrap: [AppComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    ToastComponent,
+    ProgressBarComponent,
+  ],
 })
-export class AppModule { }
+export class AppModule {}
