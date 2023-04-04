@@ -16,6 +16,7 @@ public class WebSecurityConfig
     @Bean
     public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
         return http
+//                .formLogin().loginPage("http://localhost:4200/login")
                 .formLogin()
                 .and()
                 .authorizeRequests()

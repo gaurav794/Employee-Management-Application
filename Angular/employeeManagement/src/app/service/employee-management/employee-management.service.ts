@@ -22,6 +22,7 @@ export class EmployeeManagementService {
     return this.http.get<RestResponseStatus>(`${this.url}/login`, { params: { "email_id": user.email_id, "password": user.password } });
   }
 
+  //TODO: Register Api would have restrictions so .. figure it out
   registerUser(user: UserRole) {
     return this.http.post<RestResponseStatus>(`${this.url}/register`, user);
   }
