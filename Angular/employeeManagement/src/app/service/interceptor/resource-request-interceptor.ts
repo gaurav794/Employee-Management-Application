@@ -8,15 +8,15 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable()
-export class XhrInterceptor implements HttpInterceptor {
+export class ResourceRequestInterceptor implements HttpInterceptor {
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const xhr = req.clone({
-      headers: req.headers.set('X-Requested-With', 'XMLHttpRequest'),
-    });
+    // const xhr = req.clone({
+    //   headers: req.headers.set('X-Requested-With', 'XMLHttpRequest'),
+    // });
 
-    return next.handle(xhr);
+    return next.handle(req);
   }
 }

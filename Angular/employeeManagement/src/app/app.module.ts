@@ -16,7 +16,9 @@ import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastComponent } from './component/util/toast/toast/toast.component';
 import { ProgressBarComponent } from './component/util/progress-bar/progress-bar.component';
-import { XhrInterceptor } from './service/http-request-interceptor/http-request-interceptor';
+import { ResourceRequestInterceptor } from './service/interceptor/resource-request-interceptor';
+import { AuthenticationComponent } from './component/authentication/authentication/authentication.component';
+import { TokenRequestInterceptor } from './service/interceptor/token-request-interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,9 +31,19 @@ import { XhrInterceptor } from './service/http-request-interceptor/http-request-
     EmployeeSummaryComponent,
     PayrollComponent,
     PayrollSummaryComponent,
+    AuthenticationComponent,
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ResourceRequestInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenRequestInterceptor,
+      multi: true,
+    },
   ],
   // First Page to Load
   bootstrap: [AppComponent],

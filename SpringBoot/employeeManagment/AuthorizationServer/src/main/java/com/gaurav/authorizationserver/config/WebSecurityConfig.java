@@ -13,8 +13,18 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class WebSecurityConfig
 {
+    private final CORSCustomizer corsCustomizer;
+
+    public WebSecurityConfig(CORSCustomizer corsCustomizer) {
+        this.corsCustomizer = corsCustomizer;
+    }
+
     @Bean
     public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
+
+        //Allow requests from different clients meaning from other than auth server
+        corsCustomizer.corsCustomizer(http);
+
         return http
 //                .formLogin().loginPage("http://localhost:4200/login")
                 .formLogin()

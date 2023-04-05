@@ -30,11 +30,20 @@ import java.util.UUID;
 @Configuration
 public class AuthorizationServerConfig
 {
+
+    private final CORSCustomizer corsCustomizer;
+
+    public AuthorizationServerConfig(CORSCustomizer corsCustomizer) {
+        this.corsCustomizer = corsCustomizer;
+    }
+
     //Add default security
     @Bean
     @Order(Ordered.HIGHEST_PRECEDENCE) // Take this http config into consideration first
     public SecurityFilterChain authorizationServerSecurityFilterChain(HttpSecurity http) throws Exception {
         OAuth2AuthorizationServerConfiguration.applyDefaultSecurity(http);
+        //Allow requests from different clients meaning from other than auth server
+        corsCustomizer.corsCustomizer(http);
         //Requests handled in SecurityConfig
         return http.formLogin(Customizer.withDefaults()).build();
     }
