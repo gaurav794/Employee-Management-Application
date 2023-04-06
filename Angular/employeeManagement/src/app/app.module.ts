@@ -19,6 +19,7 @@ import { ProgressBarComponent } from './component/util/progress-bar/progress-bar
 import { ResourceRequestInterceptor } from './service/interceptor/resource-request-interceptor';
 import { AuthenticationComponent } from './component/authentication/authentication/authentication.component';
 import { TokenRequestInterceptor } from './service/interceptor/token-request-interceptor';
+import { ErrorHandlerInterceptor } from './service/interceptor/error-handler-interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,12 +37,17 @@ import { TokenRequestInterceptor } from './service/interceptor/token-request-int
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: ResourceRequestInterceptor,
+      useClass: TokenRequestInterceptor, //1
       multi: true,
     },
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: TokenRequestInterceptor,
+      useClass: ResourceRequestInterceptor, //2
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorHandlerInterceptor, //3
       multi: true,
     },
   ],

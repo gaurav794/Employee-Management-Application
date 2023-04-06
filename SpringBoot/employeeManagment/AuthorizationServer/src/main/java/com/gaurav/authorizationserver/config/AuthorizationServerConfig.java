@@ -59,6 +59,7 @@ public class AuthorizationServerConfig
                 .scope(OidcScopes.OPENID)
                 .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
+                .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
                 .redirectUri("http://127.0.0.1:4200/authorized")//After successfully
                 .tokenSettings
                         (TokenSettings.builder()

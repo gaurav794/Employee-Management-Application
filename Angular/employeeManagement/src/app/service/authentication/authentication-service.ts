@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { ResourceRequestInterceptor } from '../interceptor/resource-request-interceptor';
-import { TokenRequestInterceptor } from '../interceptor/token-request-interceptor';
-import { environment } from 'src/environments/environment';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+// import { ResourceRequestInterceptor } from '../interceptor/resource-request-interceptor';
+// import { TokenRequestInterceptor } from '../interceptor/token-request-interceptor';
+import { Buffer } from 'buffer';
+import { environment, auth_server } from 'src/environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
@@ -19,10 +20,8 @@ export class AuthenticationService {
   }
 
   getToken() {
-    let url: string =
-      'http://localhost:8080/oauth2/token?client_id=client&redirect_uri=http://127.0.0.1:4200/authorized&grant_type=authorization_code&code=&code_verifier=qPsH306-ZDDaOE8DFzVn05TkN3ZZoVmI_6x4LsVglQI';
-    url = url.replace('code=', 'code=' + this.code);
-    console.log(url);
+    let url: string = environment.TOKEN_URL;
+    url = url.replace('~', this.code);
 
     return this.http.post(url, null); // get id_token
   }

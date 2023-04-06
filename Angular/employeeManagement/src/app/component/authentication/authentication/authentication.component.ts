@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/service/authentication/authentication-service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { take } from 'rxjs';
 import { HttpParams } from '@angular/common/http';
 import { Token } from '@angular/compiler';
@@ -13,7 +13,8 @@ import { Token } from '@angular/compiler';
 export class AuthenticationComponent implements OnInit {
   constructor(
     private authenticationService: AuthenticationService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) {
     this.getAuthorizationCode();
   }
@@ -24,10 +25,15 @@ export class AuthenticationComponent implements OnInit {
       .pipe(take(1))
       .subscribe((tokens) => {
         if ((tokens as any)?.id_token) {
-          console.log(tokens);
           sessionStorage.setItem('id_token', (tokens as any).id_token);
-          sessionStorage.setItem('access_token', (tokens as any).access_token);
-        } else {
+          sessionStorage.setItem(
+            'refresh_token',
+            (tokens as any).refresh_token
+          );
+          //redirect to dashboard
+          this.router.navigateByUrl('');
+        } else 
+        {
           console.error('Forbidden');
         }
       });
