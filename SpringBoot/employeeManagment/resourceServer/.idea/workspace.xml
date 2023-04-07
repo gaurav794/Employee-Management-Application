@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3c8eb8a0-009a-47ac-957e-89d459790b00" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../Angular/employeeManagement/src/app/service/authentication/authentication-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Angular/employeeManagement/src/app/service/authentication/authentication-service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Angular/employeeManagement/src/app/service/interceptor/error-handler-interceptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Angular/employeeManagement/src/app/service/interceptor/error-handler-interceptor.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Angular/employeeManagement/src/app/service/interceptor/resource-request-interceptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Angular/employeeManagement/src/app/service/interceptor/resource-request-interceptor.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Angular/employeeManagement/src/app/service/interceptor/token-request-interceptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Angular/employeeManagement/src/app/service/interceptor/token-request-interceptor.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Angular/employeeManagement/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Angular/employeeManagement/src/environments/environment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AuthorizationServer/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AuthorizationServer/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AuthorizationServer/src/main/java/com/gaurav/authorizationserver/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AuthorizationServer/src/main/java/com/gaurav/authorizationserver/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AuthorizationServer/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../AuthorizationServer/src/main/resources/application.properties" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="744c9ab1-d667-48df-a8d7-a38f6b01e9de" />
+        <option name="url" value="git@github.com:gaurav794/Angular-and-SpringBoot-Application.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.3.22/spring-web-5.3.22.jar!/org/springframework/http/HttpStatus.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.3.22/spring-webmvc-5.3.22.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.3.22/spring-webmvc-5.3.22.jar!/org/springframework/web/servlet/mvc/method/annotation/ServletInvocableHandlerMethod.class" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/gaurav/employeemanagement/model/UserRole.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Eqbhf4At0BEra9yRVVEwMdShw5" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/gaurav/Desktop/Projects/Angular-and-SpringBoot-Application/SpringBoot/employeeManagment/ResourceServer&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;0c383541b5c9f4af480735e0a405febe&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
+    ]
+  }
+}</component>
+  <component name="RunManager" selected="Spring Boot.ResourceServerApplication">
+    <configuration name="EmployeeManagementApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="employeeManagement" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gaurav.employeemanagement.EmployeeManagementApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ResourceServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="ResourceServer" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gaurav.resourceserver.ResourceServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3c8eb8a0-009a-47ac-957e-89d459790b00" name="Changes" comment="" />
+      <created>1663326183108</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1663326183108</updated>
+      <workItem from="1663326184819" duration="303000" />
+      <workItem from="1663327906606" duration="472000" />
+      <workItem from="1663436175226" duration="224000" />
+      <workItem from="1663590166958" duration="5528000" />
+      <workItem from="1663670692020" duration="3818000" />
+      <workItem from="1663680632968" duration="4108000" />
+      <workItem from="1663753608785" duration="8864000" />
+      <workItem from="1663848878804" duration="3720000" />
+      <workItem from="1663926460660" duration="8325000" />
+      <workItem from="1664170875226" duration="14888000" />
+      <workItem from="1664530034917" duration="9245000" />
+      <workItem from="1664793445061" duration="7226000" />
+      <workItem from="1665496853694" duration="209000" />
+      <workItem from="1665657014428" duration="919000" />
+      <workItem from="1665742831997" duration="752000" />
+      <workItem from="1666262209660" duration="1851000" />
+      <workItem from="1667211680953" duration="1488000" />
+      <workItem from="1667297616905" duration="1084000" />
+      <workItem from="1675744757625" duration="12414000" />
+      <workItem from="1675846131489" duration="6431000" />
+      <workItem from="1676198297748" duration="662000" />
+      <workItem from="1676200650712" duration="1977000" />
+      <workItem from="1676283808297" duration="4380000" />
+      <workItem from="1676368435680" duration="5889000" />
+      <workItem from="1676627813983" duration="8093000" />
+      <workItem from="1676801708765" duration="3646000" />
+      <workItem from="1676964332498" duration="3897000" />
+      <workItem from="1677757166765" duration="3015000" />
+      <workItem from="1678191236411" duration="129000" />
+      <workItem from="1678283482818" duration="1085000" />
+      <workItem from="1678285173565" duration="158000" />
+      <workItem from="1678285347417" duration="162000" />
+      <workItem from="1678285526749" duration="899000" />
+      <workItem from="1678286562167" duration="1602000" />
+      <workItem from="1678431292223" duration="2797000" />
+      <workItem from="1680585758473" duration="4908000" />
+      <workItem from="1680763813263" duration="1579000" />
+      <workItem from="1680860418145" duration="1996000" />
+      <workItem from="1680862741388" duration="683000" />
+      <workItem from="1680867585134" duration="76000" />
+      <workItem from="1680867672499" duration="80000" />
+      <workItem from="1680867780136" duration="98000" />
+      <workItem from="1680867942665" duration="25000" />
+      <workItem from="1680868012134" duration="53000" />
+      <workItem from="1680868628255" duration="115000" />
+    </task>
+    <task id="LOCAL-00001" summary="Completed ERD and Database Setup, Developed Models, Repositories and Service Structure">
+      <created>1663761932910</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1663761932910</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Developed Central Rest Controller for the application">
+      <created>1663765705272</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1663765705272</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Worked on getUserRole endpoint">
+      <created>1663852503100</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1663852503100</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat: find user and save user using API, REST CONTROLLER">
+      <created>1663941071702</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1663941071702</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat: Employee and Payroll end points NON-FUNCTIONAL, REST CONTROLLER">
+      <created>1664178031433</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1664178031433</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fix: Successfully APIs returning json objects, REST CONTROLLER">
+      <created>1664187085770</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1664187085770</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat: Functional Rest Controller for application">
+      <created>1664195480758</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1664195480758</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fix: Exception Handling end-points, REST CONTROLLER">
+      <created>1664549577895</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1664549577895</updated>
+    </task>
+    <task id="LOCAL-00009" summary="fix: REST end-points returns object as per ResResponseStatus Class">
+      <created>1664800097575</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1664800097575</updated>
+    </task>
+    <task id="LOCAL-00010" summary="feat: DEVELOPED REST CONTROLLER">
+      <created>1664800212604</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1664800212604</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:jakarta.persistence:jakarta.persistence-api" />
+    <option featureType="dependencySupport" implementationName="java:org.hibernate:hibernate-core" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/../.." />
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+    <MESSAGE value="Completed ERD and Database Setup, Developed Models, Repositories and Service Structure" />
+    <MESSAGE value="Developed Central Rest Controller for the application" />
+    <MESSAGE value="Worked on getUserRole endpoint" />
+    <MESSAGE value="feat: find user and save user using API, REST CONTROLLER" />
+    <MESSAGE value="feat: Employee and Payroll end points NON-FUNCTIONAL, REST CONTROLLER" />
+    <MESSAGE value="fix: Successfully APIs returning json objects, REST CONTROLLER" />
+    <MESSAGE value="feat: Functional Rest Controller for application" />
+    <MESSAGE value="fix: Exception Handling end-points, REST CONTROLLER" />
+    <MESSAGE value="fix: REST end-points returns object as per ResResponseStatus Class" />
+    <MESSAGE value="feat: DEVELOPED REST CONTROLLER" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: DEVELOPED REST CONTROLLER" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="org.hibernate.exception.SQLGrammarException" package="org.hibernate.exception" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="org.springframework.http.ResponseEntity" memberName="status" />
+        <PinnedItemInfo parentTag="org.springframework.dao.DataIntegrityViolationException" memberName="cause" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
