@@ -55,12 +55,6 @@
 			<artifactId>spring-security-oauth2-authorization-server</artifactId>
 			<version>0.3.1</version>
 		</dependency>
-<!--		<dependency>-->
-<!--			<groupId>com.gaurav</groupId>-->
-<!--			<artifactId>ResourceServer</artifactId>-->
-<!--			<version>0.0.1-SNAPSHOT</version>-->
-<!--			<scope>compile</scope>-->
-<!--		</dependency>-->
         <dependency>
             <groupId>at.favre.lib</groupId>
             <artifactId>bcrypt</artifactId>

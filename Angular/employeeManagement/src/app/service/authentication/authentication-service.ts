@@ -3,7 +3,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 // import { ResourceRequestInterceptor } from '../interceptor/resource-request-interceptor';
 // import { TokenRequestInterceptor } from '../interceptor/token-request-interceptor';
 import { Buffer } from 'buffer';
-import { environment, auth_server } from 'src/environments/environment';
+import {
+  environment,
+  auth_server,
+  tokenURL,
+} from 'src/environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
@@ -20,9 +24,8 @@ export class AuthenticationService {
   }
 
   getToken() {
-    let url: string = environment.TOKEN_URL;
-    url = url.replace('~', this.code);
-
+    let url: string = tokenURL(this.code);
+    //HTTP POST
     return this.http.post(url, null); // get id_token
   }
 }

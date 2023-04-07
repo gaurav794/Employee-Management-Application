@@ -16,20 +16,23 @@ export class TokenRequestInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    //basic authentication
-    const basicAuth =
-      `Basic ` +
-      Buffer.from(
-        `${auth_server.CLIENT_ID}:${auth_server.CLIENT_SECRET}`
-      ).toString('base64');
-    //headers
-    const headers = new HttpHeaders({
-      'content-type': 'application/json',
-      Authorization: basicAuth,
-    });
+    let request = req.clone();
 
-    const request = req.clone({ headers: headers });
+    if (request.method === 'POST' && sessionStorage.length === 0) {
+      //basic authentication
+      const basicAuth =
+        `Basic ` +
+        Buffer.from(
+          `${auth_server.CLIENT_ID}:${auth_server.CLIENT_SECRET}`
+        ).toString('base64');
+      //headers
+      const headers = new HttpHeaders({
+        'content-type': 'application/json',
+        Authorization: basicAuth,
+      });
 
+      request = req.clone({ headers: headers });
+    }
     return next.handle(request);
   }
 }

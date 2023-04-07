@@ -22,8 +22,10 @@ export const environment = {
   RESOURCE_SERVER_URL: 'http://localhost:9000/api',
   //
   AUTHORIZATION_CODE_URL: `${auth_server.URL}/oauth2/authorize?response_type=${auth_server.RESPONSE_TYPE}&client_id=${auth_server.CLIENT_ID}&scope=${auth_server.CLIENT_SCOPE}&redirect_uri=${auth_server.CLIENT_REDIRECT_URI}/authorized&code_challenge=${auth_server.CODE_CHALLENGE}&code_challenge_method=${auth_server.CODE_CHALLENGE_METHOD}`,
-  //
-  TOKEN_URL: `${auth_server.URL}/oauth2/token?client_id=${auth_server.CLIENT_ID}&redirect_uri=${auth_server.CLIENT_REDIRECT_URI}/authorized&grant_type=${auth_server.GRANT_TYPE}&code=~&code_verifier=${auth_server.CODE_VERIFIER}`,
+};
+
+export const tokenURL = (code: string) => {
+  return `${auth_server.URL}/oauth2/token?client_id=${auth_server.CLIENT_ID}&redirect_uri=${auth_server.CLIENT_REDIRECT_URI}/authorized&grant_type=${auth_server.GRANT_TYPE}&code=${code}&code_verifier=${auth_server.CODE_VERIFIER}`;
 };
 
 /*

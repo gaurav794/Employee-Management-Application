@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-		(scanBasePackages = {"com.gaurav.resourceserver","com.gaurav.authorizationserver"})
+		(scanBasePackages = {"com.gaurav.authorizationserver"})
 public class AuthorizationServerApplication {
 
 	public static void main(String[] args) {

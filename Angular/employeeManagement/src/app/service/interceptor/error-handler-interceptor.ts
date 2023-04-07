@@ -8,6 +8,7 @@ import {
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { ToastService } from '../toast/toast.service';
+import { RestResponseStatus } from '../../interface/rest-response-status';
 
 @Injectable({ providedIn: 'root' })
 export class ErrorHandlerInterceptor implements HttpInterceptor {
@@ -18,10 +19,21 @@ export class ErrorHandlerInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     return next.handle(req).pipe(
-      tap((error) => {
-        if (error instanceof HttpErrorResponse) {
-          this.toastService.show(error.name, error.message, 5000);
-        }
+      tap({
+        error: (e) => {
+          if (e instanceof HttpErrorResponse) {
+            if (e.status == 0)
+              this.toastService.show(
+                'ERR_CONNECTION_REFUSED',
+                'Unable To Connect To The Server',
+                8000
+              );
+            else {
+              let errData: RestResponseStatus = e.error;
+              this.toastService.show(errData.status, errData.message, 8000);
+            }
+          }
+        },
       })
     );
   }
