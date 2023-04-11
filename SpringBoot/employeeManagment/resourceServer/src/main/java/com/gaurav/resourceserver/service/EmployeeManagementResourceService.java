@@ -10,6 +10,7 @@ import com.gaurav.resourceserver.repository.UserRepository;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -21,11 +22,13 @@ public class EmployeeManagementResourceService
     private final UserRepository userRepository;
     private final EmployeeRepository employeeRepository;
     private final PayrollRepository payrollRepository;
+    private final PasswordEncoder bcryptPasswordEncoder;
 
-    public EmployeeManagementResourceService(UserRepository userRepository, EmployeeRepository employeeRepository, PayrollRepository payrollRepository) {
+    public EmployeeManagementResourceService(UserRepository userRepository, EmployeeRepository employeeRepository, PayrollRepository payrollRepository, PasswordEncoder bcryptPasswordEncoder) {
         this.userRepository = userRepository;
         this.employeeRepository = employeeRepository;
         this.payrollRepository = payrollRepository;
+        this.bcryptPasswordEncoder = bcryptPasswordEncoder;
     }
 
     //find user from the UserRole table
@@ -34,14 +37,14 @@ public class EmployeeManagementResourceService
         UserRole result = null;
         try
         {
-            result = userRepository.findByEmail_idAndPassword(user.getEmail_id(),user.getPassword());
+            result = userRepository.findByEmail_id(user.getEmail_id());
         }
         catch(Exception e)
         {
             result = null;
         }
 
-        if(result != null && user.getEmail_id().equals(result.getEmail_id()) && user.getPassword().equals(result.getPassword()))
+        if(result != null && user.getEmail_id().equals(result.getEmail_id()) && bcryptPasswordEncoder.matches(user.getPassword(),result.getPassword()))
             return true;
 
         return false;
@@ -49,14 +52,19 @@ public class EmployeeManagementResourceService
     //add user to UserRole table
     public ResponseEntity saveUserRole(UserRole user)
     {
-        UserRole newUser = new UserRole(user.getUser_name(),user.getEmail_id(),user.getPhone_number(),user.getPassword(), new Date());
+        //Encoding the password
+        String rawPassword = user.getPassword();
+        String encodedPassword = bcryptPasswordEncoder.encode(rawPassword);
+        UserRole newUser = new UserRole(user.getUser_name(),user.getEmail_id(),user.getPhone_number(),encodedPassword, new Date());
+
+
         try
         {
             userRepository.save(newUser);
         }
         catch(DataIntegrityViolationException e)
         {
-            return new ResponseEntity(failureMessage("User Role with email id already exists!"), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity(failureMessage("User Role with email id already exists!"), HttpStatus.CONFLICT);
         }
         catch (Exception e) {
             return new ResponseEntity(errorMessage(), HttpStatus.INTERNAL_SERVER_ERROR);

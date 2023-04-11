@@ -28,7 +28,13 @@ export class ErrorHandlerInterceptor implements HttpInterceptor {
                 'Unable To Connect To The Server',
                 8000
               );
-            else {
+            else if (e.status == 401) {
+              this.toastService.show(
+                'FORBIDDEN',
+                'Could not authenticate the user.',
+                8000
+              );
+            } else {
               let errData: RestResponseStatus = e.error;
               this.toastService.show(errData.status, errData.message, 8000);
             }

@@ -24,8 +24,7 @@ public class UserRole
     @NotBlank
     private String password;
     @Column(length = 4, nullable = false)
-    @NotBlank
-    private String role;
+    private String role = "user";
     private Date date_added;
 
     public UserRole() {

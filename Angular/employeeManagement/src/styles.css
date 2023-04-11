@@ -1,13 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
 body {
-  padding: 4rem;
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
+  font-family: "Poppins", sans-serif;
 }
 
 .container {
   background: rgb(221, 221, 221);
-  min-height: 80vh;
+  min-height: 90vh;
 }
 
 .main {
@@ -15,7 +12,6 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
 }
 
 .head {
@@ -79,7 +75,6 @@ input[type="date"] {
   cursor: pointer;
 }
 
-
 .btn-container,
 .login-signup-link {
   display: flex;
@@ -91,7 +86,7 @@ input[type="date"] {
   justify-content: space-between;
 }
 
-.btn-container>button {
+.btn-container > button {
   padding: 2px;
   width: 10rem;
 }
@@ -179,10 +174,30 @@ th:last-child {
   border-top-right-radius: 5px;
 }
 
-tr:last-child>td:first-child {
+tr:last-child > td:first-child {
   border-bottom-left-radius: 5px;
 }
 
-tr:last-child>td:last-child {
+tr:last-child > td:last-child {
   border-bottom-right-radius: 5px;
+}
+
+/* Responsive BreakPoints */
+@media only screen and (min-width: 576px) {
+  body {
+    padding: 2rem;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+}
+
+@media only screen and (min-width: 992px) {
+}
+
+@media only screen and (min-width: 1200px) {
+  .container {
+    min-width: 95vw;
+    min-height: 92vh;
+  }
 }

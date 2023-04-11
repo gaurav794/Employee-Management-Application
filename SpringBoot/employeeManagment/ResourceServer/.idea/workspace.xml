@@ -5,26 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3c8eb8a0-009a-47ac-957e-89d459790b00" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../Angular/employeeManagement/src/app/component/authentication/authentication/authentication.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Angular/employeeManagement/src/app/component/authentication/authentication/authentication.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Angular/employeeManagement/src/app/component/user_module/login/login.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Angular/employeeManagement/src/app/component/user_module/login/login.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Angular/employeeManagement/src/app/service/authentication/authentication-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Angular/employeeManagement/src/app/service/authentication/authentication-service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Angular/employeeManagement/src/app/service/interceptor/error-handler-interceptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Angular/employeeManagement/src/app/service/interceptor/error-handler-interceptor.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Angular/employeeManagement/src/app/service/interceptor/resource-request-interceptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Angular/employeeManagement/src/app/service/interceptor/resource-request-interceptor.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Angular/employeeManagement/src/app/service/interceptor/token-request-interceptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Angular/employeeManagement/src/app/service/interceptor/token-request-interceptor.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Angular/employeeManagement/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Angular/employeeManagement/src/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AuthorizationServer/src/main/java/com/gaurav/authorizationserver/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AuthorizationServer/src/main/java/com/gaurav/authorizationserver/config/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AuthorizationServer/src/main/java/com/gaurav/authorizationserver/service/CustomAuthenticationProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AuthorizationServer/src/main/java/com/gaurav/authorizationserver/service/CustomUserDetailsService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaurav/resourceserver/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaurav/resourceserver/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaurav/resourceserver/model/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaurav/resourceserver/model/UserRole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaurav/resourceserver/repository/EmployeeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaurav/resourceserver/repository/EmployeeRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaurav/resourceserver/repository/PayrollRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaurav/resourceserver/repository/PayrollRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaurav/resourceserver/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaurav/resourceserver/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaurav/resourceserver/service/EmployeeManagementResourceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaurav/resourceserver/service/EmployeeManagementResourceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gaurav/resourceserver/config/CORSCustomizerResource.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gaurav/resourceserver/config/SecurityConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gaurav/resourceserver/service/EmployeeManagementResourceService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gaurav/resourceserver/service/EmployeeManagementResourceService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resourceServer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../resourceServer/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,10 +41,18 @@
     <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.3.22/spring-web-5.3.22.jar!/org/springframework/http/HttpStatus.class" root0="SKIP_INSPECTION" />
     <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.3.22/spring-webmvc-5.3.22.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.class" root0="SKIP_INSPECTION" />
     <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.3.22/spring-webmvc-5.3.22.jar!/org/springframework/web/servlet/mvc/method/annotation/ServletInvocableHandlerMethod.class" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/gaurav/resourceserver/repository/UserRepository.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/gaurav/employeemanagement/model/UserRole.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectId" id="2Eqbhf4At0BEra9yRVVEwMdShw5" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -167,9 +156,8 @@
       <workItem from="1680867942665" duration="25000" />
       <workItem from="1680868012134" duration="53000" />
       <workItem from="1680868628255" duration="115000" />
-      <workItem from="1680870042458" duration="94000" />
-      <workItem from="1680946480413" duration="5058000" />
-      <workItem from="1681187939659" duration="3106000" />
+      <workItem from="1680869709660" duration="664000" />
+      <workItem from="1680946360416" duration="45000" />
     </task>
     <task id="LOCAL-00001" summary="Completed ERD and Database Setup, Developed Models, Repositories and Service Structure">
       <created>1663761932910</created>

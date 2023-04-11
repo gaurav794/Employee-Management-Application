@@ -1,9 +1,36 @@
 .login-btn {
-    padding: 5px;
-    background: rgb(65, 164, 29);
+  padding: 5px;
+  background: rgb(65, 164, 29);
 }
 
-.head
-{
-    margin-top: 4rem;
+.head {
+  margin-top: 4rem;
+}
+
+/* Responsive BreakPoints */
+@media only screen and (min-width: 576px) {
+  .btn-container {
+    margin-top: 2rem;
+  }
+
+  .login-main {
+    padding-top: 2rem;
+  }
+
+  .login-btn {
+    width: -webkit-fill-available;
+  }
+
+  .validation {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+}
+
+@media only screen and (min-width: 992px) {
+}
+
+@media only screen and (min-width: 1200px) {
 }

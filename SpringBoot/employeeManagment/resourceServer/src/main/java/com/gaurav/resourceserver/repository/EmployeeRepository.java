@@ -14,5 +14,5 @@ public interface EmployeeRepository extends CrudRepository<Employee,Long>
     List<Employee> findAll();
 
     @Query("SELECT emp from Employee emp where emp.pid = ?1")
-    public Employee findByPid(String pid);
+    Employee findByPid(String pid);
 }

@@ -14,5 +14,5 @@ public interface PayrollRepository extends CrudRepository<Payroll, Long>
     List<Payroll> findAll();
 
 @Query("SELECT p from Payroll p where p.payroll_month = ?1 and p.payroll_year = ?2 and p.employee.employee_id =?3")
-public Payroll findPayrollByMonthYearAndEmployee_id(int month, int year,Long employee_id);
+Payroll findPayrollByMonthYearAndEmployee_id(int month, int year,Long employee_id);
 }

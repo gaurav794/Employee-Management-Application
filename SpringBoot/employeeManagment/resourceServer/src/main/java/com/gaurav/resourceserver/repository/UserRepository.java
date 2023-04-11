@@ -9,7 +9,5 @@ import org.springframework.stereotype.Repository;
 public interface UserRepository extends CrudRepository<UserRole, Long>
 {
     @Query("SELECT user from UserRole user where user.email_id = ?1")
-    public UserRole findByEmail_id(String email_id);
-    @Query("SELECT user from UserRole user where user.email_id = ?1 and user.password = ?2")
-    public UserRole findByEmail_idAndPassword(String email_id,String password);
+    UserRole findByEmail_id(String email_id);
 }

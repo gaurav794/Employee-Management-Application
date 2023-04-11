@@ -16,7 +16,7 @@ export class ResourceRequestInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     let request = req.clone();
 
-    if (sessionStorage.length != 0) {
+    if (sessionStorage.getItem('id_token') != null) {
       //Authorized user only
       const bearerToken = sessionStorage?.getItem('id_token');
       const headers = new HttpHeaders({

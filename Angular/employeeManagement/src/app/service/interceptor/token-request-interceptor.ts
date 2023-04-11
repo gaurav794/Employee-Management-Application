@@ -18,7 +18,10 @@ export class TokenRequestInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     let request = req.clone();
 
-    if (request.method === 'POST' && sessionStorage.length === 0) {
+    if (
+      request.method === 'POST' &&
+      sessionStorage.getItem('id_token') == null
+    ) {
       //basic authentication
       const basicAuth =
         `Basic ` +
