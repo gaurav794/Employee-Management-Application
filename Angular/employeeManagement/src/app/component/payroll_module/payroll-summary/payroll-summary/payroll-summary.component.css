@@ -1,11 +1,33 @@
+.payroll-summary-back-btn {
+  margin-top: 2rem;
+  margin-right: 2rem;
+  align-self: end;
+}
+
 .back-btn {
-    background: rgb(255, 66, 66);
+  background: rgb(255, 66, 66);
 }
 
 th {
-    background: #4a4a4a;
+  background: #4a4a4a;
+}
+
+td {
+  background: #3b3b3b;
+}
+
+/* Responsive BreakPoints */
+@media only screen and (min-width: 576px) {
+  app-logout {
+    align-self: normal;
   }
-  
-  td {
-    background: #3b3b3b;
-  }
+}
+
+@media only screen and (min-width: 768px) {
+}
+
+@media only screen and (min-width: 992px) {
+}
+
+@media only screen and (min-width: 1200px) {
+}

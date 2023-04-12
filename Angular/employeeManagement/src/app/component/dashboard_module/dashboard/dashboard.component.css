@@ -1,11 +1,11 @@
 .dash-items {
-  display: flex;
-  margin-top: 5rem;
+  margin-top: 3rem;
 }
+
 .dash-item {
-  padding: 2rem;
-  margin: 3rem 1rem;
-  font-size: 20px;
+  padding: 3rem;
+  margin: 1rem;
+  font-size: 15px;
   background-color: rgb(174, 174, 174);
   border-radius: 20px;
   color: #000;
@@ -16,4 +16,27 @@
 
 a {
   color: black;
+}
+
+/* Responsive BreakPoints */
+@media only screen and (min-width: 576px) {
+  app-logout {
+    align-self: normal;
+  }
+
+  .dash-head {
+    margin-top: 4rem;
+  }
+  .row {
+    --bs-gutter-x: -1.5rem;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+}
+
+@media only screen and (min-width: 992px) {
+}
+
+@media only screen and (min-width: 1200px) {
 }

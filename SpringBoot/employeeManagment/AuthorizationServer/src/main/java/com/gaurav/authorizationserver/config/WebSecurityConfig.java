@@ -14,12 +14,15 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
 
 @Configuration
 public class WebSecurityConfig {
@@ -40,31 +43,23 @@ public class WebSecurityConfig {
 
         //Allow requests from different clients meaning from other than auth server
         corsCustomizer.corsCustomizer(http);
-
         return http
 //                .formLogin().loginPage("http://localhost:4200/login")
                 .formLogin()
                 .and()
                 .authorizeRequests()
                 .anyRequest().authenticated().and()
+                .securityContext((sc) ->
+                        sc.securityContextRepository(new HttpSessionSecurityContextRepository()))
                 .build();
     }
 
-//    @Bean
-//    public DaoAuthenticationProvider authenticationProvider()
-//    {
-//        DaoAuthenticationProvider dao = new DaoAuthenticationProvider();
-//            dao.setUserDetailsService(userDetailsService);
-//            dao.setPasswordEncoder(passwordEncoder);
-//            return dao;
-//    }
+    @Autowired
+    public void authManager(AuthenticationManagerBuilder auth) throws Exception {
 
-    @Bean
-    public AuthenticationManager authManager(HttpSecurity http) throws Exception {
-        AuthenticationManagerBuilder authenticationManagerBuilder =
-                http.getSharedObject(AuthenticationManagerBuilder.class);
-        authenticationManagerBuilder.authenticationProvider(authenticationProvider);
-        return authenticationManagerBuilder.build();
+        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
     }
+
+
 
 }

@@ -8,3 +8,23 @@
 .clear-btn {
   background: rgb(55, 183, 252);
 }
+
+.date-label {
+  font-size: 16px;
+}
+
+/* Responsive BreakPoints */
+@media only screen and (min-width: 576px) {
+  .validation {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+}
+
+@media only screen and (min-width: 992px) {
+}
+
+@media only screen and (min-width: 1200px) {
+}

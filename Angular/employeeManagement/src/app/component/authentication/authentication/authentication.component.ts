@@ -20,29 +20,29 @@ export class AuthenticationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.authenticationService
-    //   .getToken()
-    //   .pipe(take(1))
-    //   .subscribe((tokens) => {
-    //     if ((tokens as any)?.id_token) {
-    //       sessionStorage.setItem('id_token', (tokens as any).id_token);
-    //       sessionStorage.setItem(
-    //         'refresh_token',
-    //         (tokens as any).refresh_token
-    //       );
-    //       //redirect to dashboard
-    //       this.router.navigateByUrl('');
-    //     } else
-    //     {
-    //       console.error('Forbidden');
-    //     }
-    //   });
+    this.authenticationService
+      .getToken()
+      .pipe(take(1))
+      .subscribe((tokens) => {
+        if ((tokens as any)?.id_token) {
+          sessionStorage.setItem('id_token', (tokens as any).id_token);
+          sessionStorage.setItem(
+            'refresh_token',
+            (tokens as any).refresh_token
+          );
+          //redirect to dashboard
+          this.router.navigateByUrl('');
+        } else {
+          console.error('Forbidden');
+        }
+      });
   }
 
   getAuthorizationCode() {
     this.activatedRoute.queryParams.subscribe((params) => {
       if (params?.['code']) {
         let code: string = params['code'];
+        console.log(code);
         this.authenticationService.setCode(code);
       }
     });

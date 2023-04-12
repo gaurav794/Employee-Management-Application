@@ -1,16 +1,22 @@
 <div class="dash-main main">
+  <!-- Logout Button -->
+  <app-logout></app-logout>
 
-<div class="dash-head head">
-    <!-- Logout Button -->
-    <app-logout></app-logout>
+  <div class="dash-head head">
     <!-- Page Heading  -->
-  <app-page-heading [heading]="page_heading"></app-page-heading>
-</div>
+    <app-page-heading [heading]="page_heading"></app-page-heading>
+  </div>
 
-<div class="dash-items">
-    <div class="dash-item"><a routerLink="/add-emp">Add Employee</a></div>
-    <div class="dash-item"><a routerLink="/emp-summary">Employee Summary</a></div>
-    <div class="dash-item"><a routerLink="/g-pr">Generate Payroll</a></div>
-    <div class="dash-item"><a routerLink="/pr-summary">Payroll Summary</a></div>
-</div>
+  <div class="dash-items row">
+    <div class="dash-item col-6"><a routerLink="/add-emp">Add Employee</a></div>
+    <div class="dash-item col-6">
+      <a routerLink="/emp-summary">Employee Summary</a>
+    </div>
+    <div class="dash-item col-6">
+      <a routerLink="/g-pr">Generate Payroll</a>
+    </div>
+    <div class="dash-item col-6">
+      <a routerLink="/pr-summary">Payroll Summary</a>
+    </div>
+  </div>
 </div>

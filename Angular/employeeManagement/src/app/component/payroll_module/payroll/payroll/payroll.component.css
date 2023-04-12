@@ -1,22 +1,59 @@
 .attendance-wage {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .close-btn {
-    background: rgb(255, 66, 66);
+  background: rgb(255, 66, 66);
 }
 
 .generate-btn {
-    background: rgb(65, 164, 29);
+  background: rgb(65, 164, 29);
 }
 
 .clear-btn {
-    background: rgb(55, 183, 252);
+  background: rgb(55, 183, 252);
 }
 
-#daily_wage,#generated_salary,#net_pay
-{
-    cursor: not-allowed;
-    background: rgb(104 104 104);
+.date-label {
+  font-size: 16px;
+}
+
+#daily_wage,
+#generated_salary,
+#net_pay {
+  cursor: not-allowed;
+  background: rgb(104 104 104);
+}
+
+/* Responsive BreakPoints */
+@media only screen and (min-width: 576px) {
+  app-logout {
+    align-self: normal;
+  }
+
+  .payroll-head {
+    margin-top: 1rem;
+  }
+
+  .validation {
+    font-size: 16px;
+  }
+
+  .form-section {
+    margin-top: 1rem;
+  }
+
+  .util-btn-container {
+    margin-top: 1rem;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+}
+
+@media only screen and (min-width: 992px) {
+}
+
+@media only screen and (min-width: 1200px) {
 }

@@ -30,7 +30,7 @@ export class ErrorHandlerInterceptor implements HttpInterceptor {
               );
             else if (e.status == 401) {
               this.toastService.show(
-                'FORBIDDEN',
+                'UNAUTHORIZED',
                 'Could not authenticate the user.',
                 8000
               );

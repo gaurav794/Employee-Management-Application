@@ -22,7 +22,6 @@ import org.springframework.security.oauth2.server.authorization.config.ClientSet
 import org.springframework.security.oauth2.server.authorization.config.ProviderSettings;
 import org.springframework.security.oauth2.server.authorization.config.TokenSettings;
 import org.springframework.security.web.SecurityFilterChain;
-
 import java.security.NoSuchAlgorithmException;
 import java.time.Duration;
 import java.util.UUID;

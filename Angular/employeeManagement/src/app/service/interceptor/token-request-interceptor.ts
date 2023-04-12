@@ -23,7 +23,7 @@ export class TokenRequestInterceptor implements HttpInterceptor {
       sessionStorage.getItem('id_token') == null
     ) {
       //basic authentication
-      const basicAuth =
+      const BASIC_AUTH =
         `Basic ` +
         Buffer.from(
           `${auth_server.CLIENT_ID}:${auth_server.CLIENT_SECRET}`
@@ -31,7 +31,7 @@ export class TokenRequestInterceptor implements HttpInterceptor {
       //headers
       const headers = new HttpHeaders({
         'content-type': 'application/json',
-        Authorization: basicAuth,
+        Authorization: BASIC_AUTH,
       });
 
       request = req.clone({ headers: headers });
