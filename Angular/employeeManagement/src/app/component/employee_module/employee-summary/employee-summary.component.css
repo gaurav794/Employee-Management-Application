@@ -20,13 +20,30 @@ td {
   app-logout {
     align-self: normal;
   }
+  .table {
+    width: 100%;
+    max-height: 30rem;
+  }
+  table {
+    width: max-content;
+    height: max-content;
+  }
 }
 
 @media only screen and (min-width: 768px) {
+  .table {
+    max-height: 35rem;
+  }
 }
 
 @media only screen and (min-width: 992px) {
+  .table {
+    max-height: 40rem;
+  }
 }
 
 @media only screen and (min-width: 1200px) {
+  .table {
+    max-height: 45rem;
+  }
 }

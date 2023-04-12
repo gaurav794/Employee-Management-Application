@@ -1,7 +1,6 @@
 .dash-items {
   margin-top: 3rem;
 }
-
 .dash-item {
   padding: 3rem;
   margin: 1rem;
@@ -13,7 +12,6 @@
   width: 200px;
   text-align: center;
 }
-
 a {
   color: black;
 }
@@ -25,7 +23,7 @@ a {
   }
 
   .dash-head {
-    margin-top: 4rem;
+    margin-top: 5rem;
   }
   .row {
     --bs-gutter-x: -1.5rem;
@@ -33,10 +31,39 @@ a {
 }
 
 @media only screen and (min-width: 768px) {
+  .dash-head {
+    margin-top: 8rem;
+  }
+  .row {
+    --bs-gutter-x: -13.5rem;
+  }
 }
 
 @media only screen and (min-width: 992px) {
+  .dash-head {
+    margin-top: 5rem;
+  }
+
+  .row {
+    --bs-gutter-x: -12.5rem;
+  }
+
+  .dash-item {
+    font-size: 18px;
+  }
 }
 
 @media only screen and (min-width: 1200px) {
+  .dash-head {
+    margin-top: 6rem;
+  }
+  .row {
+    --bs-gutter-x: 0;
+  }
+
+  .dash-item {
+    font-size: 20px;
+    padding: 3.5rem;
+    width: 225px;
+  }
 }

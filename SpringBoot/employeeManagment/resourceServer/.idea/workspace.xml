@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c8eb8a0-009a-47ac-957e-89d459790b00" name="Changes" comment="" />
+    <list default="true" id="3c8eb8a0-009a-47ac-957e-89d459790b00" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../Angular/employeeManagement/src/app/component/dashboard_module/dashboard/dashboard.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Angular/employeeManagement/src/app/component/dashboard_module/dashboard/dashboard.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Angular/employeeManagement/src/app/component/dashboard_module/dashboard/dashboard.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Angular/employeeManagement/src/app/component/dashboard_module/dashboard/dashboard.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Angular/employeeManagement/src/app/component/employee_module/employee/employee.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Angular/employeeManagement/src/app/component/employee_module/employee/employee.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Angular/employeeManagement/src/app/component/util/page-heading/page-heading.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Angular/employeeManagement/src/app/component/util/page-heading/page-heading.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaurav/resourceserver/config/CORSCustomizerResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaurav/resourceserver/config/CORSCustomizerResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaurav/resourceserver/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaurav/resourceserver/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaurav/resourceserver/service/BeansProviderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaurav/resourceserver/service/BeansProviderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaurav/resourceserver/service/EmployeeManagementResourceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaurav/resourceserver/service/EmployeeManagementResourceService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -149,6 +160,7 @@
       <workItem from="1680870042458" duration="94000" />
       <workItem from="1680946480413" duration="5058000" />
       <workItem from="1681187939659" duration="3292000" />
+      <workItem from="1681295637380" duration="1219000" />
     </task>
     <task id="LOCAL-00001" summary="Completed ERD and Database Setup, Developed Models, Repositories and Service Structure">
       <created>1663761932910</created>

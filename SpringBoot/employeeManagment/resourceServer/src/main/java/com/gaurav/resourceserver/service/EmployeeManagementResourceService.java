@@ -10,7 +10,7 @@ import com.gaurav.resourceserver.repository.UserRepository;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.password.PasswordEncoder;
+//import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -22,13 +22,20 @@ public class EmployeeManagementResourceService
     private final UserRepository userRepository;
     private final EmployeeRepository employeeRepository;
     private final PayrollRepository payrollRepository;
-    private final PasswordEncoder bcryptPasswordEncoder;
+//    private final PasswordEncoder bcryptPasswordEncoder;
 
-    public EmployeeManagementResourceService(UserRepository userRepository, EmployeeRepository employeeRepository, PayrollRepository payrollRepository, PasswordEncoder bcryptPasswordEncoder) {
+//    public EmployeeManagementResourceService(UserRepository userRepository, EmployeeRepository employeeRepository, PayrollRepository payrollRepository, PasswordEncoder bcryptPasswordEncoder) {
+//        this.userRepository = userRepository;
+//        this.employeeRepository = employeeRepository;
+//        this.payrollRepository = payrollRepository;
+//        this.bcryptPasswordEncoder = bcryptPasswordEncoder;
+//    }
+
+
+    public EmployeeManagementResourceService(UserRepository userRepository, EmployeeRepository employeeRepository, PayrollRepository payrollRepository) {
         this.userRepository = userRepository;
         this.employeeRepository = employeeRepository;
         this.payrollRepository = payrollRepository;
-        this.bcryptPasswordEncoder = bcryptPasswordEncoder;
     }
 
     //find user from the UserRole table
@@ -44,7 +51,9 @@ public class EmployeeManagementResourceService
             result = null;
         }
 
-        if(result != null && user.getEmail_id().equals(result.getEmail_id()) && bcryptPasswordEncoder.matches(user.getPassword(),result.getPassword()))
+//        if(result != null && user.getEmail_id().equals(result.getEmail_id()) && bcryptPasswordEncoder.matches(user.getPassword(),result.getPassword()))
+//            return true;
+        if(result != null && user.getEmail_id().equals(result.getEmail_id()) && user.getPassword().equals(result.getPassword()))
             return true;
 
         return false;
@@ -54,8 +63,9 @@ public class EmployeeManagementResourceService
     {
         //Encoding the password
         String rawPassword = user.getPassword();
-        String encodedPassword = bcryptPasswordEncoder.encode(rawPassword);
-        UserRole newUser = new UserRole(user.getUser_name(),user.getEmail_id(),user.getPhone_number(),encodedPassword, new Date());
+//        String encodedPassword = bcryptPasswordEncoder.encode(rawPassword);
+//        UserRole newUser = new UserRole(user.getUser_name(),user.getEmail_id(),user.getPhone_number(),encodedPassword, new Date());
+        UserRole newUser = new UserRole(user.getUser_name(),user.getEmail_id(),user.getPhone_number(),rawPassword, new Date());
 
 
         try
