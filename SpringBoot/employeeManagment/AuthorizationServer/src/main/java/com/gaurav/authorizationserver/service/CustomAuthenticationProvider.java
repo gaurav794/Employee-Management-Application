@@ -3,6 +3,8 @@ package com.gaurav.authorizationserver.service;
 import com.gaurav.authorizationserver.model.UserRole;
 import com.gaurav.authorizationserver.repository.UserRepository;
 import com.gaurav.authorizationserver.service.util.LoginUserDetails;
+import org.springframework.beans.factory.ObjectFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -16,9 +18,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
 @Service
 public class CustomAuthenticationProvider implements AuthenticationProvider {
@@ -29,6 +31,9 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         this.passwordEncoder = passwordEncoder;
         this.userRepository = userRepository;
     }
+
+    @Autowired
+    ObjectFactory<HttpSession> httpSessionFactory;
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException
@@ -52,10 +57,6 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         if (!passwordEncoder.matches(presentedPassword,user.getPassword())) {
             throw new BadCredentialsException("Bad credentials");
         }
-        //Manually setting the context
-        SecurityContext context = SecurityContextHolder.createEmptyContext();
-        context.setAuthentication(authentication);
-        SecurityContextHolder.setContext(context);
 
         return UsernamePasswordAuthenticationToken
                 .authenticated(user.getUsername(),user.getPassword(),new ArrayList<>());
@@ -64,6 +65,6 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
     @Override
     public boolean supports(Class<?> authentication) {
-        return authentication.isAssignableFrom(UsernamePasswordAuthenticationToken.class);
+        return authentication.equals(UsernamePasswordAuthenticationToken.class);
     }
 }

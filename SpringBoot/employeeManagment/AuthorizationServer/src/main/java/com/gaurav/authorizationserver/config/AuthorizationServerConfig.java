@@ -9,9 +9,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.OAuth2AuthorizationServerConfiguration;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
 import org.springframework.security.oauth2.core.ClientAuthenticationMethod;
 import org.springframework.security.oauth2.core.oidc.OidcScopes;
@@ -31,9 +33,11 @@ public class AuthorizationServerConfig
 {
 
     private final CORSCustomizer corsCustomizer;
+    private final PasswordEncoder passwordEncoder;
 
-    public AuthorizationServerConfig(CORSCustomizer corsCustomizer) {
+    public AuthorizationServerConfig(CORSCustomizer corsCustomizer, PasswordEncoder passwordEncoder) {
         this.corsCustomizer = corsCustomizer;
+        this.passwordEncoder = passwordEncoder;
     }
 
     //Add default security
@@ -44,7 +48,8 @@ public class AuthorizationServerConfig
         //Allow requests from different clients meaning from other than auth server
         corsCustomizer.corsCustomizer(http);
         //Requests handled in SecurityConfig
-        return http.formLogin(Customizer.withDefaults()).build();
+        return http.formLogin(Customizer.withDefaults())
+                .build();
     }
 
     //Registering Angular Client Details
@@ -54,12 +59,14 @@ public class AuthorizationServerConfig
         //Build client
         var registeredClient = RegisteredClient.withId(UUID.randomUUID().toString())
                 .clientId("client")
-                .clientSecret("secret")
+                //Password Must be encoded otherwise you get error 401 unauthorized
+                .clientSecret(passwordEncoder.encode("secret"))
                 .scope(OidcScopes.OPENID)
                 .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
                 .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
-                .redirectUri("http://127.0.0.1:4200/authorized")//After successfully
+                //After successfully authentication the client
+                .redirectUri("http://127.0.0.1:4200/authorized")
                 .tokenSettings
                         (TokenSettings.builder()
                                 .accessTokenTimeToLive(Duration.ofHours(10))

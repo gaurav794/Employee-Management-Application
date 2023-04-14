@@ -6,12 +6,15 @@ import com.gaurav.authorizationserver.service.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -22,7 +25,7 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
+import org.springframework.security.web.context.*;
 
 @Configuration
 public class WebSecurityConfig {
@@ -40,7 +43,6 @@ public class WebSecurityConfig {
 
     @Bean
     public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
-
         //Allow requests from different clients meaning from other than auth server
         corsCustomizer.corsCustomizer(http);
         return http
@@ -49,8 +51,7 @@ public class WebSecurityConfig {
                 .and()
                 .authorizeRequests()
                 .anyRequest().authenticated().and()
-                .securityContext((sc) ->
-                        sc.securityContextRepository(new HttpSessionSecurityContextRepository()))
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.NEVER))
                 .build();
     }
 
