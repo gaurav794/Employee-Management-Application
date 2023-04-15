@@ -11,6 +11,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -45,14 +46,22 @@ public class WebSecurityConfig {
     public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
         //Allow requests from different clients meaning from other than auth server
         corsCustomizer.corsCustomizer(http);
+
+//      TODO: Later Find the way to implement custom login page
+
         return http
-//                .formLogin().loginPage("http://localhost:4200/login")
-                .formLogin()
-                .and()
                 .authorizeRequests()
                 .anyRequest().authenticated().and()
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.NEVER))
+                .formLogin().loginPage("/login").permitAll().and()
+                .logout(logout -> logout.invalidateHttpSession(true).clearAuthentication(true))
                 .build();
+
+//        return http
+//                .authorizeRequests()
+//                .anyRequest().authenticated().and()
+//                .formLogin().and()
+//                .build();
+
     }
 
     @Autowired
@@ -60,7 +69,6 @@ public class WebSecurityConfig {
 
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
     }
-
 
 
 }

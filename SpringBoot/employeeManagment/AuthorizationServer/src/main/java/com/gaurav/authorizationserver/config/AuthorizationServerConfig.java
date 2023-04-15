@@ -24,13 +24,13 @@ import org.springframework.security.oauth2.server.authorization.config.ClientSet
 import org.springframework.security.oauth2.server.authorization.config.ProviderSettings;
 import org.springframework.security.oauth2.server.authorization.config.TokenSettings;
 import org.springframework.security.web.SecurityFilterChain;
+
 import java.security.NoSuchAlgorithmException;
 import java.time.Duration;
 import java.util.UUID;
 
 @Configuration
-public class AuthorizationServerConfig
-{
+public class AuthorizationServerConfig {
 
     private final CORSCustomizer corsCustomizer;
     private final PasswordEncoder passwordEncoder;
@@ -48,14 +48,12 @@ public class AuthorizationServerConfig
         //Allow requests from different clients meaning from other than auth server
         corsCustomizer.corsCustomizer(http);
         //Requests handled in SecurityConfig
-        return http.formLogin(Customizer.withDefaults())
-                .build();
+        return http.formLogin(Customizer.withDefaults()).build();
     }
 
     //Registering Angular Client Details
     @Bean
-    public RegisteredClientRepository registeredClientRepository()
-    {
+    public RegisteredClientRepository registeredClientRepository() {
         //Build client
         var registeredClient = RegisteredClient.withId(UUID.randomUUID().toString())
                 .clientId("client")
@@ -80,16 +78,15 @@ public class AuthorizationServerConfig
 
     //Add server settings
     @Bean
-    public ProviderSettings providerSettings()
-    {
-      return ProviderSettings.builder().issuer("http://localhost:8080").build();
+    public ProviderSettings providerSettings() {
+        return ProviderSettings.builder().issuer("http://localhost:8080").build();
     }
 
     //Generate Keys
     @Bean
     public JWKSource<SecurityContext> jwkSource() throws NoSuchAlgorithmException {
-       RSAKey rsaKey = JwkKeys.generateRSAkey();
-       JWKSet set = new JWKSet(rsaKey);
-       return (j, sc) -> j.select(set);
+        RSAKey rsaKey = JwkKeys.generateRSAkey();
+        JWKSet set = new JWKSet(rsaKey);
+        return (j, sc) -> j.select(set);
     }
 }

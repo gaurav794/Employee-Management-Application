@@ -33,23 +33,26 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.page_heading = 'Login';
-    this.loginForm = this.fb.group({
-      email_id: [
-        null,
-        Validators.compose([
-          Validators.required,
-          Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
-        ]),
-      ],
-      password: [
-        null,
-        Validators.compose([
-          Validators.required,
-          this.util.passwordLengthValidator(),
-        ]),
-      ],
-    });
+    //Redirect Authorization Server Login Page
+    window.location.href = environment.AUTHORIZATION_CODE_URL;
+
+    // this.page_heading = 'Login';
+    // this.loginForm = this.fb.group({
+    //   email_id: [
+    //     null,
+    //     Validators.compose([
+    //       Validators.required,
+    //       Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
+    //     ]),
+    //   ],
+    //   password: [
+    //     null,
+    //     Validators.compose([
+    //       Validators.required,
+    //       this.util.passwordLengthValidator(),
+    //     ]),
+    //   ],
+    // });
   }
 
   get loginFormControl() {
@@ -57,9 +60,9 @@ export class LoginComponent implements OnInit {
   }
 
   public onLogin() {
+    //TODO: Implement Later
     // if (this.loginForm.valid) {
     //   let data: UserRole = this.loginForm.value;
-
     //   this.employeeManagementService.loginUser(data).subscribe(
     //     {
     //       next: (res) => {
@@ -78,6 +81,5 @@ export class LoginComponent implements OnInit {
     // }
     // else
     //   this.util.validateForm(this.loginForm);
-    window.location.href = environment.AUTHORIZATION_CODE_URL;
   }
 }

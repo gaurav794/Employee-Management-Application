@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3c8eb8a0-009a-47ac-957e-89d459790b00" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../AuthorizationServer/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AuthorizationServer/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AuthorizationServer/src/main/java/com/gaurav/authorizationserver/config/AuthorizationServerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AuthorizationServer/src/main/java/com/gaurav/authorizationserver/config/AuthorizationServerConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AuthorizationServer/src/main/java/com/gaurav/authorizationserver/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AuthorizationServer/src/main/java/com/gaurav/authorizationserver/config/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AuthorizationServer/src/main/java/com/gaurav/authorizationserver/service/BeansService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AuthorizationServer/src/main/java/com/gaurav/authorizationserver/service/BeansService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AuthorizationServer/src/main/java/com/gaurav/authorizationserver/service/CustomAuthenticationProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AuthorizationServer/src/main/java/com/gaurav/authorizationserver/service/CustomAuthenticationProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AuthorizationServer/src/main/java/com/gaurav/authorizationserver/service/CustomUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AuthorizationServer/src/main/java/com/gaurav/authorizationserver/service/CustomUserDetailsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -157,7 +156,7 @@
       <workItem from="1680946480413" duration="5058000" />
       <workItem from="1681187939659" duration="3292000" />
       <workItem from="1681295637380" duration="1834000" />
-      <workItem from="1681452393996" duration="6425000" />
+      <workItem from="1681452393996" duration="9345000" />
     </task>
     <task id="LOCAL-00001" summary="Completed ERD and Database Setup, Developed Models, Repositories and Service Structure">
       <created>1663761932910</created>

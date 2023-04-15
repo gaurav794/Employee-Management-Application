@@ -32,9 +32,6 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         this.userRepository = userRepository;
     }
 
-    @Autowired
-    ObjectFactory<HttpSession> httpSessionFactory;
-
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException
     {
