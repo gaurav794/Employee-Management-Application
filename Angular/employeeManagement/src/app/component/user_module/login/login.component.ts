@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    //Redirect Authorization Server Login Page
+    //Redirects to  Authorization Server Login Page
     window.location.href = environment.AUTHORIZATION_CODE_URL;
 
     // this.page_heading = 'Login';
