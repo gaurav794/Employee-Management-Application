@@ -12,4 +12,10 @@ public class LoginController {
         return "login";
     }
 
+    @GetMapping("/confirm_logout")
+    public String logout()
+    {
+        return "confirm_logout";
+    }
+
 }

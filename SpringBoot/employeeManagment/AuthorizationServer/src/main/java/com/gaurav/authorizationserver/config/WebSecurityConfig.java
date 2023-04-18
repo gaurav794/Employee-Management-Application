@@ -52,16 +52,11 @@ public class WebSecurityConfig {
         return http
                 .authorizeRequests()
                 .anyRequest().authenticated().and()
-                .formLogin().loginPage("/login").permitAll().and()
-                .logout(logout -> logout.invalidateHttpSession(true).clearAuthentication(true))
+                .formLogin(form ->
+                        form.loginPage("/login")
+                                .permitAll())
+                .logout().permitAll().and()
                 .build();
-
-//        return http
-//                .authorizeRequests()
-//                .anyRequest().authenticated().and()
-//                .formLogin().and()
-//                .build();
-
     }
 
     @Autowired
