@@ -11,6 +11,10 @@ import { Token } from '@angular/compiler';
   styleUrls: ['./authentication.component.css'],
 })
 export class AuthenticationComponent implements OnInit {
+  public isUserLoggedIn: boolean | undefined;
+  public progress_bar_type: string = 'warning';
+  public progress_bar_value: number = 75;
+
   constructor(
     private authenticationService: AuthenticationService,
     private activatedRoute: ActivatedRoute,
@@ -20,6 +24,8 @@ export class AuthenticationComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.isUserLoggedIn = false;
+
     this.authenticationService
       .getToken()
       .pipe(take(1))
@@ -30,8 +36,16 @@ export class AuthenticationComponent implements OnInit {
             'refresh_token',
             (tokens as any).refresh_token
           );
-          //redirect to dashboard
-          this.router.navigateByUrl('');
+
+          //Data Update
+          this.isUserLoggedIn = true;
+          this.progress_bar_type = 'success';
+          this.progress_bar_value = 100;
+
+          setTimeout(() => {
+            //redirect to dashboard after 2 seconds
+            this.router.navigate(['']);
+          }, 1000);
         } else {
           console.error('Forbidden');
         }

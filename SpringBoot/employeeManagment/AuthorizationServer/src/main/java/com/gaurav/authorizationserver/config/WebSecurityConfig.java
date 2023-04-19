@@ -55,6 +55,7 @@ public class WebSecurityConfig {
                 .formLogin(form ->
                         form.loginPage("/login")
                                 .permitAll())
+                .rememberMe().and()
                 .logout().logoutSuccessUrl("http://127.0.0.1:4200/login").permitAll().and()
                 .build();
     }

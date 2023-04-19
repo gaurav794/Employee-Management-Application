@@ -8,17 +8,26 @@ import { PayrollComponent } from './component/payroll_module/payroll/payroll/pay
 import { LoginComponent } from './component/user_module/login/login.component';
 import { RegisterComponent } from './component/user_module/register/register.component';
 import { AuthenticationComponent } from './component/authentication/authentication/authentication.component';
+import { AuthGuard } from './service/authguard/auth-guard';
 
 const routes: Routes = [
-  { path: '', component: DashboardComponent },
+  { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'auth', component: AuthenticationComponent, pathMatch: 'full' },
   { path: 'authorized', redirectTo: 'auth', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: RegisterComponent },
-  { path: 'add-emp', component: EmployeeComponent },
-  { path: 'emp-summary', component: EmployeeSummaryComponent },
-  { path: 'g-pr', component: PayrollComponent },
-  { path: 'pr-summary', component: PayrollSummaryComponent },
+  { path: 'add-emp', component: EmployeeComponent, canActivate: [AuthGuard] },
+  {
+    path: 'emp-summary',
+    component: EmployeeSummaryComponent,
+    canActivate: [AuthGuard],
+  },
+  { path: 'g-pr', component: PayrollComponent, canActivate: [AuthGuard] },
+  {
+    path: 'pr-summary',
+    component: PayrollSummaryComponent,
+    canActivate: [AuthGuard],
+  },
   { path: '**', redirectTo: '' },
 ];
 

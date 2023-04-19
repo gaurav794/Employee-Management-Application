@@ -11,6 +11,7 @@ import {
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
+  
   private code: string = '';
 
   constructor(private http: HttpClient) {}
@@ -21,6 +22,11 @@ export class AuthenticationService {
 
   public getCode() {
     return this.code;
+  }
+
+  public isLoggedIn() : boolean
+  {
+    return sessionStorage.getItem('id_token') != null;
   }
 
   getToken() {
