@@ -51,6 +51,9 @@ public class WebSecurityConfig {
 
         return http
                 .authorizeRequests()
+                .antMatchers(HttpMethod.GET,"/register").permitAll()
+                .antMatchers(HttpMethod.GET,"/register?**").permitAll()
+                .antMatchers(HttpMethod.POST,"/register").permitAll()
                 .anyRequest().authenticated().and()
                 .formLogin(form ->
                         form.loginPage("/login")

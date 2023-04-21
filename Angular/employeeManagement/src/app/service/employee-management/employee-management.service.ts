@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {
   HttpClient,
   HttpErrorResponse,
+  HttpHeaders,
   HttpParams,
 } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
@@ -27,7 +28,17 @@ export class EmployeeManagementService {
 
   //TODO: Register Api would have restrictions so .. figure it out
   registerUser(user: UserRole) {
-    return this.http.post<RestResponseStatus>(`${this.url}/register`, user);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+
+    const options = { headers: headers };
+
+    return this.http.post<RestResponseStatus>(
+      `${this.url}/register`,
+      user,
+      options
+    );
   }
 
   getEmployeeByPid(pid: string) {

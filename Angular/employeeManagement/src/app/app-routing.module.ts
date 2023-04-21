@@ -15,7 +15,6 @@ const routes: Routes = [
   { path: 'auth', component: AuthenticationComponent, pathMatch: 'full' },
   { path: 'authorized', redirectTo: 'auth', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'signup', component: RegisterComponent },
   { path: 'add-emp', component: EmployeeComponent, canActivate: [AuthGuard] },
   {
     path: 'emp-summary',

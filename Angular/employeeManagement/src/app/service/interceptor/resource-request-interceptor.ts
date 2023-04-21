@@ -25,6 +25,7 @@ export class ResourceRequestInterceptor implements HttpInterceptor {
 
       request = req.clone({ headers: headers });
     }
+
     return next.handle(request);
   }
 }

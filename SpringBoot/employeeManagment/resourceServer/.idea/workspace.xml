@@ -5,12 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3c8eb8a0-009a-47ac-957e-89d459790b00" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../Angular/employeeManagement/src/app/service/employee-management/employee-management.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Angular/employeeManagement/src/app/service/employee-management/employee-management.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Angular/employeeManagement/src/app/service/interceptor/resource-request-interceptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Angular/employeeManagement/src/app/service/interceptor/resource-request-interceptor.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Angular/employeeManagement/src/app/service/interceptor/token-request-interceptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Angular/employeeManagement/src/app/service/interceptor/token-request-interceptor.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AuthorizationServer/src/main/java/com/gaurav/authorizationserver/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AuthorizationServer/src/main/java/com/gaurav/authorizationserver/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AuthorizationServer/src/main/java/com/gaurav/authorizationserver/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AuthorizationServer/src/main/java/com/gaurav/authorizationserver/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AuthorizationServer/src/main/java/com/gaurav/authorizationserver/controller/LoginRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AuthorizationServer/src/main/java/com/gaurav/authorizationserver/controller/LoginRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AuthorizationServer/src/main/java/com/gaurav/authorizationserver/model/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AuthorizationServer/src/main/java/com/gaurav/authorizationserver/model/UserRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AuthorizationServer/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../AuthorizationServer/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AuthorizationServer/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AuthorizationServer/src/main/resources/templates/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaurav/resourceserver/config/CORSCustomizerResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaurav/resourceserver/config/CORSCustomizerResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gaurav/resourceserver/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaurav/resourceserver/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gaurav/resourceserver/controller/EmployeeManagementResourceRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaurav/resourceserver/controller/EmployeeManagementResourceRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaurav/resourceserver/service/EmployeeManagementResourceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaurav/resourceserver/service/EmployeeManagementResourceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gaurav/resourceserver/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gaurav/resourceserver/config/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gaurav/resourceserver/controller/EmployeeManagementResourceRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gaurav/resourceserver/controller/EmployeeManagementResourceRestController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,7 +167,9 @@
       <workItem from="1681187939659" duration="3292000" />
       <workItem from="1681295637380" duration="1834000" />
       <workItem from="1681452393996" duration="9345000" />
-      <workItem from="1681893387194" duration="2567000" />
+      <workItem from="1681893387194" duration="3264000" />
+      <workItem from="1681985377191" duration="4819000" />
+      <workItem from="1682069678818" duration="1155000" />
     </task>
     <task id="LOCAL-00001" summary="Completed ERD and Database Setup, Developed Models, Repositories and Service Structure">
       <created>1663761932910</created>

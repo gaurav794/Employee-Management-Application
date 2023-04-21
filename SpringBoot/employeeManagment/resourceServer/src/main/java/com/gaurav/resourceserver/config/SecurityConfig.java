@@ -19,11 +19,12 @@ public class SecurityConfig
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
-        corsCustomizerResource.corsCustomizer(http);
+        this.corsCustomizerResource.corsCustomizer(http);
 
-        return http.oauth2ResourceServer().jwt(jwk -> jwk.jwkSetUri("http://localhost:8080/oauth2/jwks")).and().authorizeRequests()
-                .antMatchers(HttpMethod.POST,"/api/register").permitAll()
-                .anyRequest().authenticated().and().build();
+        return http.oauth2ResourceServer().jwt(jwk -> jwk.jwkSetUri("http://localhost:8080/oauth2/jwks")).and()
+                .authorizeRequests()
+                .anyRequest()
+                .authenticated().and().build();
     }
 }
 

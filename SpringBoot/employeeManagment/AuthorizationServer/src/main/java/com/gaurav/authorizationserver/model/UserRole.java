@@ -29,11 +29,12 @@ public class UserRole
         this.password = password;
     }
 
-    public UserRole(String user_name, String email_id, Long phone_number, String password, Date date_added) {
+    public UserRole(String user_name, String email_id, Long phone_number, String password, String role,Date date_added) {
         this.user_name = user_name;
         this.email_id = email_id;
         this.phone_number = phone_number;
         this.password = password;
+        this.role = role;
         this.date_added = date_added;
     }
 

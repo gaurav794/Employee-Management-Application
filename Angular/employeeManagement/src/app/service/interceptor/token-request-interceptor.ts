@@ -19,8 +19,9 @@ export class TokenRequestInterceptor implements HttpInterceptor {
     let request = req.clone();
 
     if (
+      sessionStorage.getItem('id_token') == null &&
       request.method === 'POST' &&
-      sessionStorage.getItem('id_token') == null
+      request.url.includes('token') //Prevent from executing while registering user
     ) {
       //basic authentication
       const BASIC_AUTH =
