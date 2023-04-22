@@ -16,54 +16,43 @@ a {
   color: black;
 }
 
-/* Responsive BreakPoints */
-@media only screen and (min-width: 576px) {
-  app-logout {
-    align-self: normal;
+/* Responsive BreakPoints for Personal Image */
+/* Mobile */
+@media only screen and (min-width: 411px) and (min-height: 731px) {
+  .dash-items {
+    justify-content: center;
   }
-
-  .dash-head {
-    margin-top: 5rem;
-  }
-  .row {
-    --bs-gutter-x: -1.5rem;
+  .dash-items > .dash-item {
+    padding: 25px;
   }
 }
-
-@media only screen and (min-width: 768px) {
-  .dash-head {
+/* Tablet */
+@media only screen and (min-width: 768px) and (min-height: 1024px) {
+  .dash-items {
+    flex-direction: column;
+  }
+  .dash-items > .dash-item {
+    padding: 50px;
+  }
+}
+/* Laptop */
+@media only screen and (min-width: 1366px) and (min-height: 768px) {
+  .dash-items {
     margin-top: 8rem;
+    flex-direction: row;
   }
-  .row {
-    --bs-gutter-x: -13.5rem;
+  .dash-items > .dash-item {
+    padding: 50px;
   }
 }
-
-@media only screen and (min-width: 992px) {
-  .dash-head {
-    margin-top: 5rem;
+/* Laptop */
+@media only screen and (min-width: 1920px) and (min-height: 1080px) {
+  .dash-items {
+    margin-top: 12rem;
+    flex-direction: row;
   }
-
-  .row {
-    --bs-gutter-x: -12.5rem;
-  }
-
-  .dash-item {
+  .dash-items > .dash-item {
+    padding: 50px;
     font-size: 18px;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  .dash-head {
-    margin-top: 6rem;
-  }
-  .row {
-    --bs-gutter-x: 0;
-  }
-
-  .dash-item {
-    font-size: 20px;
-    padding: 3.5rem;
-    width: 225px;
   }
 }
