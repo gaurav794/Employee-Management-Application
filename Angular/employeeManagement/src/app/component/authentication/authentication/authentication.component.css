@@ -5,6 +5,13 @@
 p {
   position: absolute;
 }
+.progress-bar > p {
+  text-shadow: 2px 2px rgba(255, 255, 255, 0.5);
+}
+.progress-bar > p.success {
+  color: aliceblue;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
+}
 
 /* Responsive BreakPoints*/
 /* Mobile */

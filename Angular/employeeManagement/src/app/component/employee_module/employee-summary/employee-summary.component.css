@@ -1,6 +1,5 @@
 .employee-summary-back-btn {
   margin-top: 2rem;
-  margin-right: 2rem;
   align-self: end;
 }
 .back-btn {
@@ -21,16 +20,17 @@ td {
   .table {
     border-radius: 10px;
     width: 75vw;
-    height: 60vh;
+    max-height: 60vh;
   }
 
   table {
-    height: 60vh;
+    height: 20vh;
   }
   .summary {
     margin-top: 1rem;
   }
   .employee-summary-back-btn {
+    margin-right: 6%;
   }
 }
 /* Tablet */
@@ -38,14 +38,10 @@ td {
   .table {
     border-radius: 10px;
     width: 75vw;
-    height: 70vh;
-  }
-
-  table {
-    height: 70vh;
+    max-height: 70vh;
   }
   .employee-summary-back-btn {
-    margin-right: 4rem;
+    margin-right: 8%;
   }
 }
 /* Laptop */
@@ -53,14 +49,15 @@ td {
   .table {
     border-radius: 10px;
     width: 75vw;
-    height: 60vh;
+    max-height: 60vh;
+  }
+  table {
+    font-size: 15px;
+    height: 30vh;
   }
 
-  table {
-    height: 80vh;
-  }
   .employee-summary-back-btn {
-    margin-right: 9rem;
+    margin-right: 11%;
   }
   .employee-summary-back-btn > a {
     font-size: 14px;
@@ -71,16 +68,16 @@ td {
   .table {
     border-radius: 10px;
     width: 75vw;
-    height: 70vh;
+    max-height: 70vh;
   }
-
   table {
-    height: 80vh;
+    font-size: 16px;
+    height: 40vh;
   }
   .summary {
     margin-top: 1rem;
   }
   .employee-summary-back-btn {
-    margin-right: 12rem;
+    margin-right: 10%;
   }
 }

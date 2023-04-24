@@ -180,7 +180,7 @@ tr:last-child > td:last-child {
 /* Mobile */
 @media only screen and (min-width: 411px) and (min-height: 731px) {
   .container {
-    background: rgb(221, 221, 221);
+    background: rgba(221, 221, 221, 0.5);
     margin: 4%;
     min-height: 95vh;
     max-width: 92%;

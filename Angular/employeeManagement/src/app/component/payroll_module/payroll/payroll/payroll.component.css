@@ -13,6 +13,7 @@
 #daily_wage,
 #generated_salary,
 #net_pay {
+  color: white;
   cursor: not-allowed;
   background: rgb(104 104 104);
 }

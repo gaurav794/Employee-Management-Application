@@ -66,6 +66,8 @@
           <input
             id="attendance"
             type="number"
+            min="0"
+            max="31"
             placeholder="Attendance"
             formControlName="attendance"
           />
@@ -79,6 +81,14 @@
           >
             <div *ngIf="payrollFormControl['attendance'].errors?.['required']">
               Attendance is required
+            </div>
+            <div
+              *ngIf="
+                payrollFormControl['attendance']?.value < 0 ||
+                payrollFormControl['attendance']?.value > 31
+              "
+            >
+              Value must be between 0 and 31
             </div>
           </div>
         </div>
