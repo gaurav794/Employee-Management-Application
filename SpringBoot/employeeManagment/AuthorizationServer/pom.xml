@@ -81,6 +81,8 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		<!--Name of the .jar maven package-->
+		<finalName>authorization-server</finalName>
 	</build>
 
 </project>
